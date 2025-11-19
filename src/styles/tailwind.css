@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Bruno+Ace&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-background: #150e24;
+    --primary-foreground: #ffffff;
+    --primary-light: #2c0087;
+    --primary-dark: #090a1999;
+
+    /* Secondary Colors */
+    --secondary-background: #47d4aa;
+    --secondary-foreground: #150e24;
+    --secondary-light: #ffffff4c;
+    --secondary-dark: #312e5c;
+
+    /* Accent Colors */
+    --accent-color: #f05623;
+    --accent-foreground: #ffffff;
+    --accent-light: #ffffff0c;
+    --accent-dark: #090a1999;
+
+    /* Border Colors */
+    --border-primary: #312e5c;
+    --border-secondary: #5e5d77;
+    --border-light: #ffffff33;
+    --border-muted: #5e5d774c;
+    --border-subtle: #ffffff4c;
+
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #c5c5ee;
+    --text-muted: #ffffff7f;
+    --text-accent: #47d4aa;
+    --text-neutral: #f2f2f2;
+    --text-dark: #150e24;
+
+    /* Background Colors */
+    --bg-main: #150e24;
+    --bg-card: #2c0087;
+    --bg-overlay: #090a1999;
+    --bg-light: #ffffff;
+    --bg-subtle: #ffffff4c;
+
+    /* Component-specific Colors */
+    --header-bg: var(--primary-background);
+    --header-text: var(--text-primary);
+    --button-bg: var(--secondary-background);
+    --button-text: var(--text-primary);
+    --footer-bg: var(--primary-background);
+    --footer-border: var(--border-muted);
+
+    /* Typography Variables */
+    --font-size-xs: 14px;
+    --font-size-sm: 16px;
+    --font-size-base: 18px;
+    --font-size-lg: 20px;
+    --font-size-xl: 22px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 28px;
+    --font-size-4xl: 32px;
+    --font-size-5xl: 36px;
+    --font-size-6xl: 48px;
+    --font-size-hero: 64px;
+
+    /* Font Weight Variables */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 800;
+
+    /* Line Height Variables */
+    --line-height-tight: 16px;
+    --line-height-normal: 21px;
+    --line-height-relaxed: 26px;
+    --line-height-loose: 39px;
+    --line-height-hero: 61px;
+
+    /* Spacing Variables */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-base: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 24px;
+    --spacing-2xl: 32px;
+    --spacing-3xl: 40px;
+    --spacing-4xl: 48px;
+    --spacing-5xl: 62px;
+    --spacing-6xl: 80px;
+
+    /* Border Radius Variables */
+    --radius-sm: 4px;
+    --radius-base: 24px;
+    --radius-md: 26px;
+    --radius-lg: 30px;
+    --radius-xl: 34px;
+    --radius-2xl: 46px;
+    --radius-full: 50px;
+
+    /* Layout Variables */
+    --width-auto: auto;
+    --width-full: 100%;
+    --width-container: 1202px;
+    --height-auto: auto;
+    --height-full: 100%;
+  }
+
+  /* Global Font Application for Figma Design Accuracy */
+  body {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* Outfit font for headings and primary text */
+  .font-outfit {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* Bruno Ace for decorative numbers and special text */
+  .font-bruno-ace {
+    font-family: 'Bruno Ace', cursive;
+  }
+
+  /* Open Sans for body text and descriptions */
+  .font-open-sans {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  /* Poppins for certain UI elements */
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+}
