@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import HeroSection from './HeroSection';
@@ -138,12 +138,7 @@ export default function HomePage() {
             position: 'Managing Director',
             image: '/images/img_image.png',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam semper aliquam ante id faucibus. Suspendisse potenti. Duis et semper nunc. Nunc rutrum odio et dignissim pellentesque. Proin fermentum, nisl eu dapibus consectetur, arcu turpis maximus lacus, quis ullamcorper nisi turpis et diam.',
-            socialLinks: {
-              facebook: '#',
-              twitter: '#',
-              linkedin: '#',
-              instagram: '#'
-            }
+            socialLinks: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' }
           },
           {
             id: 2,
@@ -151,12 +146,7 @@ export default function HomePage() {
             position: 'Managing Director',
             image: '/images/img_image_574x384.png',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam semper aliquam ante id faucibus. Suspendisse potenti. Duis et semper nunc. Nunc rutrum odio et dignissim pellentesque. Proin fermentum, nisl eu dapibus consectetur, arcu turpis maximus lacus, quis ullamcorper nisi turpis et diam.',
-            socialLinks: {
-              facebook: '#',
-              twitter: '#',
-              linkedin: '#',
-              instagram: '#'
-            }
+            socialLinks: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' }
           }
         ]);
 
@@ -176,7 +166,6 @@ export default function HomePage() {
   };
 
   const handleGetInTouch = (): void => {
-    // Scroll to contact section or handle get in touch action
     handleFormSubmit();
   };
 
@@ -189,23 +178,30 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#150e24]" style={{ backgroundImage: `url('/images/img_image_9.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <Header />
+    <div className="min-h-screen bg-[#150e24]">
+      {/* Background applied only to header + hero section */}
+      <div
+        className="relative"
+        style={{
+          backgroundImage: `url('/images/homeBannerBg.png')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <Header />
+        <HeroSection />
+      </div>
 
       <main>
-        <HeroSection />
         <KeyHighlightsSection
           serviceHighlights={serviceHighlights}
           onGetInTouch={handleGetInTouch}
         />
         <CertificationsSection />
         <ServicesSection services={services} />
-        <ClientsSection
-          clients={clients}
-        />
-        <ExhibitionSection
-          exhibitionCenters={exhibitionCenters}
-        />
+        <ClientsSection clients={clients} />
+        <ExhibitionSection exhibitionCenters={exhibitionCenters} />
         <EventsSection />
         <ReportsSection />
         <StandAssessmentSection />
