@@ -22,38 +22,38 @@ export default function ExhibitionSection({ exhibitionCenters }: ExhibitionSecti
     >
       <div className="max-w-[1200px] mx-auto">
 
-        {/* Exhibitions Header */}
+        {/* Heading */}
         <div className="flex flex-col gap-2 items-center w-full mb-8">
-          <motion.h2 
-            className="text-[28px] font-outfit font-semibold text-white text-center"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            Our Exhibitions
-          </motion.h2>
-          <motion.div 
-            className="w-16 h-1 bg-[#47d4aa]"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          />
+          <div className="flex flex-col gap-2 items-center w-full px-4 sm:px-11">
+            <h2 className="whitespace-nowrap text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center">
+              Our Exhibitions
+            </h2>
+            <div className="w-[66px] h-1 bg-[#47d4aa] rounded" />
+          </div>
         </div>
 
-        {/* Exhibitions Marquee */}
+        {/* Marquee Reverse Direction */}
         <div className="overflow-hidden">
           <div className="marquee flex gap-6">
             {[...exhibitionCenters, ...exhibitionCenters].map((center, index) => (
               <div
                 key={`${center.id}-${index}`}
-                className="flex justify-center items-center bg-white rounded flex-shrink-0"
-                style={{ flex: '0 0 calc((100% - 24px*4)/5)' }} // 5 logos + 4 gaps
+                className="
+                  flex justify-center items-center bg-white rounded flex-shrink-0
+                  w-[150px] h-[90px] /* FIXED STANDARD SIZE */
+                "
+                style={{
+                  minWidth:
+                    typeof window !== 'undefined' && window.innerWidth >= 1024
+                      ? 'calc((100% - 96px)/5)' // SAME AS ClientsSection
+                      : '150px'
+                }}
               >
                 <Image
                   src={center.logo.startsWith('/') ? center.logo : `/${center.logo}`}
                   alt={`${center.name} logo`}
-                  width={150}       // Adjust width if needed
-                  height={100}      // Increased height
+                  width={80}
+                  height={40}
                   className="object-contain"
                 />
               </div>
@@ -66,19 +66,20 @@ export default function ExhibitionSection({ exhibitionCenters }: ExhibitionSecti
       <style jsx>{`
         .marquee {
           display: flex;
-          animation: scroll 20s linear infinite;
+          animation: reverseScroll 20s linear infinite;
         }
 
         .marquee:hover {
           animation-play-state: paused;
         }
 
-        @keyframes scroll {
+        /* OPPOSITE DIRECTION */
+        @keyframes reverseScroll {
           0% {
-            transform: translateX(0%);
+            transform: translateX(-50%);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(0%);
           }
         }
       `}</style>

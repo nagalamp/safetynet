@@ -45,7 +45,7 @@ export default function ContactSection() {
 
   return (
     <motion.section
-      className="w-[90%] mx-auto"
+      className="w-[90%] mx-auto py-16"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -55,7 +55,7 @@ export default function ContactSection() {
         <div className="flex flex-col gap-10 items-center w-full max-w-[1202px]">
 
           {/* Title */}
-          <div className="flex flex-col gap-4 justify-center items-center w-full px-9">
+          <div className="flex flex-col gap-4 justify-center items-center w-full px-4 sm:px-9">
             <h2 className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-[51px]">
               Get In Touch
             </h2>
@@ -75,19 +75,20 @@ export default function ContactSection() {
                   layout_width="w-full"
                 />
 
-                <div className="flex flex-col sm:flex-row gap-4 w-full">
+                {/* First Name & Last Name on the same row, full width */}
+                <div className="flex flex-row gap-4 w-full">
                   <EditText
                     placeholder="First Name"
                     value={formData.firstName}
                     onChange={(e) => onFormChange('firstName', e.target.value)}
-                    layout_width="w-full"
+                  //layout_width="w-1/2"
                   />
 
                   <EditText
                     placeholder="Last Name"
                     value={formData.lastName}
                     onChange={(e) => onFormChange('lastName', e.target.value)}
-                    layout_width="w-full"
+                  //layout_width="w-1/2"
                   />
                 </div>
 
