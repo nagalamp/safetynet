@@ -11,10 +11,25 @@ import ContactSection from '../Home/ContactSection';
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#150e24] bg-no-repeat bg-cover bg-center bg-[url('/images/img_image_9.png')]">
-      <Header />
+
+
+
+      <div
+        className="relative"
+        style={{
+          backgroundImage: `url('/images/homeBannerBg.png')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <Header />
+        <HeroSection />
+      </div>
+
 
       <main>
-        <HeroSection />
+
         <WhoweareSection />
         <ExpandableInfoSection />
         <ServicesSection />

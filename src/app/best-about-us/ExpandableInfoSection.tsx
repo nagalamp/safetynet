@@ -229,13 +229,14 @@ const ExpandableInfoSection = () => {
                                 aria-label={expandedSection === section.id ? 'Collapse section' : 'Expand section'}
                             >
                                 <Image
-                                    src="/images/img_vector_teal_300_44x44.svg"
+                                    src={expandedSection === section.id ? "/images/Close.svg" : "/images/Open.svg"}
                                     alt={expandedSection === section.id ? 'Collapse' : 'Expand'}
                                     width={44}
                                     height={44}
                                     className="w-8 h-8"
                                 />
                             </button>
+
                         </div>
 
                         {/* Accordion content with smooth animation */}

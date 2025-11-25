@@ -21,7 +21,7 @@ const WhoweareSection = () => {
           </div>
 
           {/* Company Image */}
-          <div className="w-full mb-10">
+          <div className="w-full mb-0">
             <Image
               src="/images/img_rectangle_758.png"
               alt="BEST B4-Global Office"
@@ -228,7 +228,12 @@ const WhoweareSection = () => {
           {/* Staff Qualifications */}
           <div
             className="w-full border border-[#ffffff33] rounded-[4px] bg-[#070b23] bg-cover bg-center p-6 sm:p-8 lg:p-[58px]"
-            style={{ backgroundImage: 'url(/images/img_image_107.png)' }}
+            style={{
+              backgroundImage: 'linear-gradient(rgba(7, 11, 35, 0.1), rgba(7, 11, 35, 0.1)), url(/images/img_image_107.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              opacity: '0.5'
+            }}
           >
             <div className="flex flex-col gap-6 justify-start items-center">
               <h3 className="text-[24px] sm:text-[28px] lg:text-[32px] font-outfit font-bold leading-[30px] sm:leading-[36px] lg:leading-[41px] text-left text-white">
