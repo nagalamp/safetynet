@@ -63,7 +63,7 @@ export default function ServicesSection() {
 
                 {/* Hover Content */}
                 <motion.div className="absolute inset-0 w-full h-full bg-[#2c0087] rounded p-6 flex flex-col justify-start" variants={cardContentVariants} initial="initial" whileHover="hover">
-                  <h1 className="text-[20px] sm:text-[25px] md:text-[20px] lg:text-[30px] font-outfit font-semibold leading-tight text-white text-left w-full leading-[38px]">{service.title}</h1>
+                  <h1 className="text-[20px] sm:text-[25px] md:text-[20px] lg:text-[30px] font-outfit font-semibold text-white text-left w-full leading-[38px]">{service.title}</h1>
 
                   <div className="space-y-3 flex-1 mt-2">
                     {service.features?.map((feature, index) => (
