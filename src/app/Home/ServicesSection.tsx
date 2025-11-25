@@ -4,6 +4,10 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { services as serviceData, ServiceCard } from '../../data/services';
 
+interface ServicesSectionProps {
+  showHeading?: boolean; // optional prop, defaults to true
+}
+
 // Motion Variants
 const staggerContainer = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } };
 const cardVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } };
@@ -11,21 +15,11 @@ const imageVariants = { initial: { opacity: 1 }, hover: { opacity: 0, transition
 const cardContentVariants = { initial: { opacity: 0, scale: 0.95 }, hover: { opacity: 1, scale: 1, transition: { duration: 0.4, delay: 0.1 } } };
 const featureItemVariants = { initial: { opacity: 0, x: -5 }, hover: { opacity: 1, x: 0, transition: { duration: 0.3 } } };
 const buttonVariants = {
-  initial: {
-    scale: 1,
-    rotate: -45,
-    backgroundColor: '#47d4aa', // green initially
-  },
-  hover: {
-    scale: 1.1,
-    rotate: 0,
-    backgroundColor: '#f05623', // orange on hover
-    transition: { duration: 0.3, ease: 'easeInOut' }
-  }
+  initial: { scale: 1, rotate: -45, backgroundColor: '#47d4aa' },
+  hover: { scale: 1.1, rotate: 0, backgroundColor: '#f05623', transition: { duration: 0.3, ease: 'easeInOut' } }
 };
 
-
-export default function ServicesSection() {
+export default function ServicesSection({ showHeading = true }: ServicesSectionProps) {
   const router = useRouter();
   const handleServiceClick = (service: ServiceCard) => {
     const serviceSlug = service.slug || service.title.toLowerCase().replace(/\s+/g, '-');
@@ -35,17 +29,18 @@ export default function ServicesSection() {
   return (
     <motion.section className="w-full py-12 sm:py-16 lg:py-[34px] px-4" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerContainer}>
       <div className="max-w-[1202px] mx-auto flex flex-col gap-[34px] items-center w-full">
-        <div className="flex flex-col gap-2 items-center w-[25%] px-8">
-          {/* Section Heading */}
-          <div className="flex flex-col gap-2 items-center w-full px-4 sm:px-11">
-            <h2 className="whitespace-nowrap text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center">
-              Our Services
-            </h2>
-            <div className="w-[66px] h-1 bg-[#47d4aa] rounded" />
+
+        {/* Conditional Section Heading */}
+        {showHeading && (
+          <div className="flex flex-col gap-2 items-center w-[25%] px-8">
+            <div className="flex flex-col gap-2 items-center w-full px-4 sm:px-11">
+              <h2 className="whitespace-nowrap text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center">
+                Our Services
+              </h2>
+              <div className="w-[66px] h-1 bg-[#47d4aa] rounded" />
+            </div>
           </div>
-
-
-        </div>
+        )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
           {serviceData.map((service) => (
@@ -63,7 +58,9 @@ export default function ServicesSection() {
 
                 {/* Hover Content */}
                 <motion.div className="absolute inset-0 w-full h-full bg-[#2c0087] rounded p-6 flex flex-col justify-start" variants={cardContentVariants} initial="initial" whileHover="hover">
-                  <h1 className="text-[20px] sm:text-[25px] md:text-[20px] lg:text-[30px] font-outfit font-semibold text-white text-left w-full leading-[38px]">{service.title}</h1>
+                  <h1 className="text-[20px] sm:text-[25px] md:text-[20px] lg:text-[30px] font-outfit font-semibold text-white text-left leading-[38px]">
+                    {service.title}
+                  </h1>
 
                   <div className="space-y-3 flex-1 mt-2">
                     {service.features?.map((feature, index) => (
@@ -84,12 +81,7 @@ export default function ServicesSection() {
                       handleServiceClick(service);
                     }}
                   >
-                    <Image
-                      src="/images/img_frame_427320965.svg"
-                      alt="Arrow icon"
-                      width={20}
-                      height={20}
-                    />
+                    <Image src="/images/img_frame_427320965.svg" alt="Arrow icon" width={20} height={20} />
                   </motion.button>
                 </motion.div>
               </div>

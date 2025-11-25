@@ -5,6 +5,21 @@ import { useRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { services as serviceData, ServiceCard } from '../../data/services';
 
+// Motion Variants for the arrow button
+const buttonVariants = {
+  initial: {
+    scale: 1,
+    rotate: -45,
+    backgroundColor: '#47d4aa', // green initially
+  },
+  hover: {
+    scale: 1.1,
+    rotate: 0,
+    backgroundColor: '#f05623', // orange on hover
+    transition: { duration: 0.3, ease: 'easeInOut' }
+  }
+};
+
 export default function ServicesSectionHorizontal() {
   const router = useRouter();
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -47,7 +62,6 @@ export default function ServicesSectionHorizontal() {
           dragElastic={0.1}
           whileTap={{ cursor: 'grabbing' }}
         >
-          {/* Duplicate services for seamless loop */}
           {[...serviceData, ...serviceData].map((service, index) => (
             <motion.div
               key={index}
@@ -92,10 +106,12 @@ export default function ServicesSectionHorizontal() {
                   ))}
                 </div>
 
-                {/* Arrow Button */}
+                {/* Arrow Button with copied hover logic */}
                 <motion.button
-                  className="w-10 h-10 bg-[#f05623] rounded-full flex items-center justify-center mt-4 ml-auto"
-                  whileHover={{ rotate: -45, scale: 1.2, backgroundColor: '#47d4aa' }}
+                  className="w-10 h-10 rounded-full flex items-center justify-center mt-4 ml-auto"
+                  variants={buttonVariants}
+                  initial="initial"
+                  whileHover="hover"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleServiceClick(service);

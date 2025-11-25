@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import HeroSection from './HeroSection';
@@ -9,27 +10,47 @@ import ServicesSection from '../Home/ServicesSection';
 import ContactSection from '../Home/ContactSection';
 
 export default function AboutPage() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadPageData();
+  }, []);
+
+  const loadPageData = async (): Promise<void> => {
+    try {
+      // Simulate loading delay
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#150e24] flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#150e24] bg-no-repeat bg-cover bg-center bg-[url('/images/img_image_9.png')]">
-
-
-
       <div
         className="relative"
         style={{
           backgroundImage: `url('/images/homeBannerBg.png')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
         }}
       >
         <Header />
         <HeroSection />
       </div>
 
-
       <main>
-
         <WhoweareSection />
         <ExpandableInfoSection />
         <ServicesSection />

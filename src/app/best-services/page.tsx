@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
-import HeroSection from '../Home/HeroSection';
+import HeroSection from './HeroSection';
 
 import ServicesSection from '../Home/ServicesSection';
 import ContactSection from '../Home/ContactSection';
@@ -142,15 +142,25 @@ export default function ServicePage() {
 
   return (
     <div className="min-h-screen bg-[#150e24]" style={{ backgroundImage: `url('/images/img_image_9.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <Header />
-      
+      <div
+        className="relative"
+        style={{
+          backgroundImage: `url('/images/homeBannerBg.png')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <Header />
+        <HeroSection />
+      </div>
+
+
+
       <main>
-        <ServicesSection services={services} />
-        <ContactSection 
-          formData={formData}
-          onFormChange={handleFormChange}
-          onSubmit={handleFormSubmit}
-        />
+
+        <ServicesSection showHeading={false} />
+        <ContactSection />
       </main>
 
       <Footer />
