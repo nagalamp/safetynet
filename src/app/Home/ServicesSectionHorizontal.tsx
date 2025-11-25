@@ -79,9 +79,9 @@ export default function ServicesSectionHorizontal() {
                   priority={index < serviceData.length}
                 />
                 <div className="absolute top-4 left-4 right-4">
-                  <h3 className="text-[16px] lg:text-[20px] font-outfit font-semibold text-white">
-                    {service.title}
-                  </h3>
+                <h1 className="text-[20px] sm:text-[25px] md:text-[20px] lg:text-[30px] font-outfit font-semibold text-white text-left leading-[38px]">
+                      {service.title}
+                    </h1>
                 </div>
               </div>
 
@@ -89,10 +89,10 @@ export default function ServicesSectionHorizontal() {
               <motion.div
                 className="absolute inset-0 w-full h-full bg-[#2c0087] rounded p-4 flex flex-col justify-start opacity-0 hover:opacity-100 transition-opacity"
               >
-                <h3 className="text-[16px] lg:text-[20px] font-outfit font-semibold text-white mb-4">
-                  {service.title}
-                </h3>
-                <div className="space-y-2 flex-1">
+                <h1 className="text-[20px] sm:text-[25px] md:text-[20px] lg:text-[30px] font-outfit font-semibold text-white text-left leading-[38px]">
+                      {service.title}
+                    </h1>
+                <div className="space-y-2 flex-1 mt-2">
                   {service.features?.map((feature, i) => (
                     <div key={i} className="flex flex-row gap-2 items-start">
                       <Image
