@@ -28,26 +28,26 @@ export default function CertificationsSection() {
       viewport={{ once: true }}
       variants={fadeInUp}
     >
-      <div className="max-w-full mx-auto px-4">
+      <div className="max-w-[1200px] mx-auto px-4">
         <div className="flex flex-col items-center justify-start w-full">
 
-          <h2 className="text-[150px] sm:text-[200px] md:text-[250px] lg:text-[300px] font-bruno-ace font-normal leading-tight text-[#ffffff0c] text-center"
-            style={{ lineHeight: '362px' }}>
+          <h2
+            className="text-[150px] sm:text-[200px] md:text-[250px] lg:text-[300px] font-bruno-ace font-normal leading-tight text-[#ffffff0c] text-center"
+            style={{ lineHeight: '362px' }}
+          >
             BEST
           </h2>
 
           {/* Horizontal Scroll Row */}
-          <div className="w-full overflow-x-auto scrollbar-none touch-pan-x">
-            <div className="flex flex-nowrap gap-6 py-5 min-w-max 
-                            justify-start md:justify-center">
+          <div className="w-full overflow-x-auto md:overflow-x-visible scrollbar-none touch-pan-x">
+            <div className="flex flex-nowrap gap-6 py-5 justify-start md:justify-center">
               {certifications.map((cert, index) => (
                 <div
                   key={index}
-                  className="flex justify-center items-center bg-white rounded p-5 
-                             w-[170px] h-[110px] sm:w-[200px] sm:h-[130px] 
-                             md:w-[240px] md:h-[150px] shrink-0"
+                  className="flex justify-center items-center bg-white rounded p-5
+                             w-full md:w-[220px] h-[130px] shrink-0"
                 >
-                  <div className="relative w-full h-full">
+                  <div className="relative w-full h-full p-5">
                     <Image
                       src={cert.logo}
                       alt={cert.alt}

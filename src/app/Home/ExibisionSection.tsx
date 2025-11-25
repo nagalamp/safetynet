@@ -40,7 +40,11 @@ export default function ExhibitionSection({ exhibitionCenters }: ExhibitionSecti
                 key={`${center.id}-${index}`}
                 className="
                   flex justify-center items-center bg-white rounded flex-shrink-0
-                  w-[150px] h-[90px] /* FIXED STANDARD SIZE */
+                  w-[180px] h-[90px]
+                  sm:w-[140px] sm:h-[90px]
+                  md:w-[160px] md:h-[100px]
+                  lg:w-[180px] lg:h-[90px]
+                  p-10
                 "
                 style={{
                   minWidth:
@@ -52,8 +56,8 @@ export default function ExhibitionSection({ exhibitionCenters }: ExhibitionSecti
                 <Image
                   src={center.logo.startsWith('/') ? center.logo : `/${center.logo}`}
                   alt={`${center.name} logo`}
-                  width={80}
-                  height={40}
+                  width={237}
+                  height={80}
                   className="object-contain"
                 />
               </div>

@@ -4,6 +4,7 @@ import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import HeroSection from './HeroSection';
 
+
 import ServicesSection from '../Home/ServicesSection';
 import ContactSection from '../Home/ContactSection';
 
@@ -159,6 +160,9 @@ export default function ServicePage() {
 
       <main>
 
+       
+
+        
         <ServicesSection showHeading={false} />
         <ContactSection />
       </main>

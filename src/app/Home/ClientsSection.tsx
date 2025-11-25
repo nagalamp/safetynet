@@ -45,13 +45,14 @@ export default function ClientsSection({ clients }: ClientsSectionProps) {
                   sm:w-[140px] sm:h-[90px]
                   md:w-[160px] md:h-[100px]
                   lg:w-[180px] lg:h-[90px]
+                  p-5
                 "
               >
                 <Image
                   src={client.logo}
                   alt={`${client.name} logo`}
-                  width={80}
-                  height={40}
+                  width={237}
+                  height={80}
                   className="object-contain"
                 />
               </div>

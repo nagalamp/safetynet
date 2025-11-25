@@ -54,6 +54,12 @@ export default function HowWeWork() {
       </div>
 
       <main>
+
+    
+
+
+
+        
         <section className="w-full bg-[#070b23] py-16 px-4 sm:px-6 lg:px-0">
           <div className="w-full max-w-[1200px] mx-auto">
             <div className="flex flex-col gap-4 justify-center items-center mb-10">

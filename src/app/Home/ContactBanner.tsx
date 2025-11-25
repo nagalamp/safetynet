@@ -18,7 +18,7 @@ export default function ContactBanner({
   return (
     <section className="w-full px-6 lg:px-16">
       <div
-        className="w-full max-w-[1200px] mx-auto relative rounded-[48px] overflow-hidden bg-cover bg-center"
+        className="w-full max-w-[1200px] mx-auto relative rounded-[100px] overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: "url('/images/CTA.png')", height: "197px" }}
       >
         {/* Removed Gradient overlay */}
@@ -54,7 +54,7 @@ export default function ContactBanner({
                   alt=""
                   width={32}
                   height={36}
-                  className="absolute top-0 right-0"
+                  className="absolute top-3 right-0"
                 />
               </div>
             </div>

@@ -9,6 +9,7 @@ import ContactSection from '../../Home/ContactSection';
 import { services } from '../../../data/services';
 import ServicesSectionHorizontal from '../../Home/ServicesSectionHorizontal';
 import HealthSafetySection from './serviceContent';
+import ServiceCard from './ServiceCards';
 
 interface FormData {
   inquiryType: string;
@@ -112,6 +113,7 @@ export default function ServiceDetailPage() {
       {/* <HealthSafetySection /> */}
 
       {/* Horizontal Services & Contact */}
+      <ServiceCard/>
       <ServicesSectionHorizontal />
       <ContactSection />
       <Footer />

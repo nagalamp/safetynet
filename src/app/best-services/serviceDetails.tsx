@@ -5,6 +5,7 @@ import Footer from '../../components/common/Footer';
 import HeroSection from '../Home/HeroSection';
 import ServicesSection from '../Home/ServicesSection';
 import ContactSection from '../Home/ContactSection';
+import  ServiceCard  from './ServiceCards';
 
 interface ServiceHighlight {
   id: number;
@@ -127,7 +128,9 @@ export default function ServicePage() {
 
       {/* Services Section */}
       <main className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-0">
-        <ServicesSection services={services} />
+      <ServiceCard/>
+        
+        
 
         {/* Contact Section */}
         <ContactSection
