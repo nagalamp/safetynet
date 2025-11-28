@@ -1,10 +1,14 @@
 'use client';
 import { motion } from 'framer-motion';
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  title: string;
+}
+
+export default function HeroSection({ title }: HeroSectionProps) {
   return (
     <motion.section
-      className="w-full h-[270px] bg-transparent bg-cover bg-center pt-4 pb-4 px-4 flex items-center justify-center"
+      className="w-full h-[270px] bg-transparent bg-cover bg-center pt-4 pb-4 px-4 flex flex-col items-center justify-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -15,8 +19,17 @@ export default function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
       >
-        Our Services
+        {title}
       </motion.h2>
+
+      <motion.nav
+        className="mt-4 text-[#ffffffcc] text-sm"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
+        Home &gt; Services &gt; {title}
+      </motion.nav>
     </motion.section>
   );
 }
