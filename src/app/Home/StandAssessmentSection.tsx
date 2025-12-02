@@ -27,7 +27,7 @@ export default function StandAssessmentSection() {
         className="w-full max-w-[1200px] px-4 overflow-hidden rounded-2xl cursor-pointer"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        animate={{ scale: hovered ? 0.95 : 1 }}  // shrink on hover
+        animate={{ scale: hovered ? 1.05 : 1 }}  // enlarge on hover
         transition={{ duration: 0.35, ease: "easeOut" }}
       >
         <Image

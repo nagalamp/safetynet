@@ -34,7 +34,7 @@ export default function ContactBanner({
                   Have any questions?
                 </p>
                 <Link href="/contact">
-                  <h3 className="text-[28px] sm:text-[36px] lg:text-[48px] font-outfit font-semibold text-white hover:text-[#47d4aa] transition-colors">
+                  <h3 className="text-[20px] sm:text-[36px] lg:text-[48px] font-outfit font-semibold text-white hover:text-[#47d4aa] transition-colors">
                     Contact Us
                   </h3>
                 </Link>
@@ -74,7 +74,7 @@ export default function ContactBanner({
                   <p className="text-[16px] sm:text-[18px] font-outfit font-normal text-white">
                     Phone Number
                   </p>
-                  <p className="text-[20px] sm:text-[20px] lg:text-[28px] font-outfit font-semibold text-white whitespace-nowrap">
+                  <p className="text-[20px] sm:text-[20px] lg:text-[20px] font-outfit font-semibold text-white whitespace-nowrap">
                     +0(850) 544 7514
                   </p>
                 </div>
@@ -92,7 +92,7 @@ export default function ContactBanner({
                   <p className="text-[16px] sm:text-[18px] font-outfit font-normal text-white">
                     E-Mail Address
                   </p>
-                  <p className="text-[20px] sm:text-[24px] lg:text-[28px] font-outfit font-medium text-white whitespace-nowrap">
+                  <p className="text-[20px] sm:text-[24px] lg:text-[20px] font-outfit font-medium text-white whitespace-nowrap">
                     hello@crosson.com
                   </p>
                 </div>

@@ -117,22 +117,12 @@ export default function ContactSection() {
                 />
               </div>
 
-              <div className="flex justify-center lg:justify-start">
-                <Button
-                  text="SEND IT TO THE MOON"
-                  text_font_size="20"
-                  text_font_family="Outfit"
-                  text_font_weight="600"
-                  text_line_height="26px"
-                  text_text_transform="uppercase"
-                  text_color="#f2f2f2"
-                  fill_background_color="#f05623"
-                  border_border_radius="4px"
-                  padding="12px 34px"
-                  layout_width="auto"
-                  onClick={onSubmit}
-                />
-              </div>
+              <div className="w-full">
+              <button className="w-full bg-[#f05623] text-[#f2f2f2] uppercase font-outfit font-semibold text-[20px] leading-[26px] py-3 px-6  hover:opacity-90 transition">
+  SEND IT TO THE MOON
+</button>
+</div>
+
             </div>
 
             {/* Contact Image */}

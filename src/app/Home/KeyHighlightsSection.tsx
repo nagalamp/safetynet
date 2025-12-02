@@ -133,14 +133,16 @@ export default function KeyHighlightsSection({
 
 
 
-            <Button
-              text="GET IN TOUCH"
-             
-              
-              className="w-full px-8 rounded text-[20px] font-outfit font-semibold transition-colors duration-300"
-              onClick={onGetInTouch}
-            />
+      
+      
 
+<motion.button
+  className="w-[300px] py-3 px-8 rounded text-[20px] font-outfit font-semibold transition-colors duration-300 bg-[#f05623] text-white"
+  whileHover={{ scale: 1.05 }}
+  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+>
+  GET IN TOUCH
+</motion.button>
             
           </motion.div>
         </div>
