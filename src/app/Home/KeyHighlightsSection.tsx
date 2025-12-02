@@ -62,7 +62,7 @@ export default function KeyHighlightsSection({
             <h2 className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight" style={{ lineHeight: '51px' }}>
               The Key Highlights
             </h2>
-            <div className="w-[66px] h-1 bg-[#47d4aa] rounded" />
+            <div className="w-[66px] h-1 bg-[#47d4aa] rounded mt-3"/>
           </div>
 
           <motion.div
@@ -130,19 +130,18 @@ export default function KeyHighlightsSection({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
+
+
+
             <Button
               text="GET IN TOUCH"
-              text_font_size="20"
-              text_font_family="Outfit"
-              text_font_weight="600"
-              text_line_height="40px"
-              text_color="#ffffff"
-              fill_background_color="#f05623"
-              border_border_radius="4px"
-              padding="12px 36px"
-              className="uppercase hover:bg-[#e04a1f] transition-colors duration-300 shadow-lg"
+             
+              
+              className="w-full px-8 rounded text-[20px] font-outfit font-semibold transition-colors duration-300"
               onClick={onGetInTouch}
             />
+
+            
           </motion.div>
         </div>
       </div>

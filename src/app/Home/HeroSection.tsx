@@ -51,7 +51,7 @@ export default function HeroSection() {
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
-                &gt;&gt;
+                &gt;
               </motion.span>
             </motion.h1>
 

@@ -27,7 +27,7 @@ export default function ServicesSection({ showHeading = true }: ServicesSectionP
   };
 
   return (
-    <motion.section className="w-full py-12 sm:py-16 lg:py-[34px] px-4" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerContainer}>
+    <motion.section className="w-full py-12 sm:py-16 lg:py-[34px] px-4 bg-[#040711]" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerContainer}>
       <div className="max-w-[1202px] mx-auto flex flex-col gap-[34px] items-center w-full">
 
         {/* Conditional Section Heading */}

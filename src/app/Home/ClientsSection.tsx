@@ -44,7 +44,7 @@ export default function ClientsSection({ clients }: ClientsSectionProps) {
                   w-[180px] h-[90px]
                   sm:w-[140px] sm:h-[90px]
                   md:w-[160px] md:h-[100px]
-                  lg:w-[180px] lg:h-[90px]
+                  lg:w-[316px] lg:h-[130px]
                   p-5
                 "
               >

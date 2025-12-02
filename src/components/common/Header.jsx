@@ -181,13 +181,13 @@ const Header = () => {
           </div>
 
           {/* DESKTOP MENU */}
-          <div className="hidden lg:flex items-center justify-between flex-1 ml-8">
+          <div className=" lg:flex items-center justify-between flex-1">
             <Image
               src="/images/img_vector.svg"
               alt=""
-              width={12}
-              height={6}
-              className="w-3 h-1.5 object-contain opacity-60"
+              width={18}
+              height={10}
+              className="w-4  object-contain"
             />
 
             <nav className="header-menu-wrapper BG-BLOBAL1 BG-BLOBAL2 BG-BLOBAL3">
@@ -207,9 +207,9 @@ const Header = () => {
                 <Image
                   src="/images/img_vector.svg"
                   alt=""
-                  width={8}
-                  height={4}
-                  className={`w-2 h-1 transition-transform duration-300 ${
+                  width={18}
+                  height={10}
+                  className={`w-4  transition-transform duration-300 ${
                     isCountryOpen ? 'rotate-180' : ''
                   }`}
                 />

@@ -73,7 +73,7 @@ export default function ReportsSection() {
       variants={staggerContainer}
     >
       <div className="max-w-full mx-auto px-4">
-        <div className="flex flex-col justify-center items-center w-full">
+        <div className="flex flex-col  items-center w-full">
           <motion.h2
             className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold leading-tight text-white text-center mt-1.5"
             style={{ lineHeight: '51px' }}
@@ -85,7 +85,7 @@ export default function ReportsSection() {
             Reports
           </motion.h2>
 
-          <div className="flex flex-col justify-start items-center w-full max-w-[1202px] mt-3">
+          <div className="flex flex-col items-center w-full max-w-[1202px] mt-3">
             <motion.div
               className="w-[66px] h-1 bg-[#47d4aa]"
               initial={{ width: 0 }}
@@ -95,15 +95,9 @@ export default function ReportsSection() {
             />
 
             <motion.p
-              className="text-[18px] font-open-sans font-normal leading-relaxed text-white w-full max-w-4xl mt-4"
-              style={{ lineHeight: '27px', textAlign: "left" }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              Post-event reports are essential for evaluating outcomes and gathering feedback,
-              providing insights into successes and areas for improvement.
+              className="text-[18px] font-open-sans text-left font-normal leading-relaxed text-white w-full max-w-4xl mt-4 text-center">
+              Post-event reports are essential for evaluating outcomes and gathering feedback, providing insights into successes and areas for improvement. They support informed decision-making 
+              and facilitate continuous enhancement of future events.
             </motion.p>
 
             <motion.h3
