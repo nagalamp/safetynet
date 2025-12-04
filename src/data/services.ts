@@ -23,7 +23,7 @@ export const services: ServiceCard[] = [
       "Detailed reporting"
     ],
     slug: "stand-auditing-services",
-  },
+  },   
   {
     id: 2,
     title: "Health & Safety Services",
@@ -42,7 +42,7 @@ export const services: ServiceCard[] = [
     id: 3,
     title: "Electrical Safety Services",
     image: "/images/img_frame_44.png",
-    headerImage: "/images/header_electrical_safety.png",
+    headerImage: "/images/Services/ElectricalSafetyServices/Banner_Electrical_Safety_Services.png",
     serviceImage: "/images/Services/ElectricalSafetyServices/Electrical_Safety_Services.png",
     description: "Electrical Safety Services ensure safe and reliable power management throughout an event — from setup to dismantling. By overseeing design compliance, installation quality, and live system monitoring, we protect both people and property while upholding the operational integrity of every brand we support",
     features: [
