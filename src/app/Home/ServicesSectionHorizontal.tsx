@@ -7,17 +7,13 @@ import { services as serviceData, ServiceCard } from '../../data/services';
 
 // Motion Variants for the arrow button
 const buttonVariants = {
-  initial: {
-    scale: 1,
-    rotate: -45,
-    backgroundColor: '#47d4aa', // green initially
-  },
+  initial: { scale: 1, rotate: -45, backgroundColor: '#47d4aa' },
   hover: {
     scale: 1.1,
     rotate: 0,
-    backgroundColor: '#f05623', // orange on hover
-    transition: { duration: 0.3, ease: 'easeInOut' }
-  }
+    backgroundColor: '#f05623',
+    transition: { duration: 0.3, ease: 'easeInOut' },
+  },
 };
 
 export default function ServicesSectionHorizontal() {
@@ -34,6 +30,13 @@ export default function ServicesSectionHorizontal() {
     if (carouselRef.current) {
       setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
     }
+    const handleResize = () => {
+      if (carouselRef.current) {
+        setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const scrollBy = (offset: number) => {
@@ -45,15 +48,15 @@ export default function ServicesSectionHorizontal() {
   return (
     <section className="w-full py-12 flex flex-col items-center">
       {/* Header */}
-      <div className="flex flex-col gap-2 items-center w-[25%] px-8 mb-6">
-        <h2 className="text-[28px] lg:text-[40px] font-outfit font-semibold text-white text-center">
+      <div className="flex flex-col gap-2 items-center w-full max-w-[90%] sm:max-w-[70%] md:max-w-[50%] lg:max-w-[25%] px-4 mb-8">
+        <h2 className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[40px] font-outfit font-semibold text-white text-center">
           Our Services
         </h2>
-        <div className="w-[66px] h-1 bg-[#47d4aa]"></div>
+        <div className="w-16 h-1 bg-[#47d4aa]"></div>
       </div>
 
       {/* Carousel Container */}
-      <div className="relative w-[1200px] overflow-hidden">
+      <div className="relative w-full max-w-full overflow-hidden px-4">
         <motion.div
           ref={carouselRef}
           className="flex gap-4 cursor-grab"
@@ -65,12 +68,12 @@ export default function ServicesSectionHorizontal() {
           {[...serviceData, ...serviceData].map((service, index) => (
             <motion.div
               key={index}
-              className="relative flex-shrink-0 w-[280px] rounded overflow-hidden cursor-pointer"
+              className="relative flex-shrink-0 w-[80vw] sm:w-[300px] md:w-[320px] lg:w-[280px] rounded overflow-hidden cursor-pointer"
               whileHover={{ scale: 1.05 }}
               onClick={() => handleServiceClick(service)}
             >
               {/* Image */}
-              <div className="relative w-full h-[380px]">
+              <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[380px]">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -79,9 +82,9 @@ export default function ServicesSectionHorizontal() {
                   priority={index < serviceData.length}
                 />
                 <div className="absolute top-4 left-4 right-4">
-                <h1 className="text-[20px] sm:text-[25px] md:text-[20px] lg:text-[30px] font-outfit font-semibold text-white text-left leading-[38px]">
-                      {service.title}
-                    </h1>
+                  <h1 className="text-[16px] sm:text-[20px] md:text-[22px] lg:text-[30px] font-outfit font-semibold text-white text-left leading-[28px] sm:leading-[32px] lg:leading-[38px]">
+                    {service.title}
+                  </h1>
                 </div>
               </div>
 
@@ -89,9 +92,9 @@ export default function ServicesSectionHorizontal() {
               <motion.div
                 className="absolute inset-0 w-full h-full bg-[#2c0087] rounded p-4 flex flex-col justify-start opacity-0 hover:opacity-100 transition-opacity"
               >
-                <h1 className="text-[20px] sm:text-[25px] md:text-[20px] lg:text-[30px] font-outfit font-semibold text-white text-left leading-[38px]">
-                      {service.title}
-                    </h1>
+                <h1 className="text-[16px] sm:text-[20px] md:text-[22px] lg:text-[30px] font-outfit font-semibold text-white text-left leading-[28px] sm:leading-[32px] lg:leading-[38px]">
+                  {service.title}
+                </h1>
                 <div className="space-y-2 flex-1 mt-2">
                   {service.features?.map((feature, i) => (
                     <div key={i} className="flex flex-row gap-2 items-start">
@@ -101,12 +104,12 @@ export default function ServicesSectionHorizontal() {
                         width={12}
                         height={10}
                       />
-                      <p className="text-[14px] lg:text-[14px] text-white">{feature}</p>
+                      <p className="text-[12px] sm:text-[14px] text-white">{feature}</p>
                     </div>
                   ))}
                 </div>
 
-                {/* Arrow Button with copied hover logic */}
+                {/* Arrow Button */}
                 <motion.button
                   className="w-10 h-10 rounded-full flex items-center justify-center mt-4 ml-auto"
                   variants={buttonVariants}
@@ -130,7 +133,7 @@ export default function ServicesSectionHorizontal() {
         </motion.div>
 
         {/* Controls */}
-        <div className="absolute top-full mt-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-10">
+        <div className="absolute top-full mt-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-10 flex-wrap justify-center">
           <button
             className="px-4 py-2 bg-[#47d4aa] rounded text-white font-semibold"
             onClick={() => scrollBy(-300)}

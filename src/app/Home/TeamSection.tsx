@@ -72,11 +72,14 @@ export default function TeamSection({ teamMembers }: TeamSectionProps) {
 
 
 
-          <div className="flex flex-col gap-2 items-center w-[32%] px-4 sm:px-11  w-full">
+        <div className="flex flex-col gap-2 items-center w-[32%] px-4 sm:px-11  w-full">
+            
+   
+            
             <h2 className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight" style={{ lineHeight: '51px' }}>
-              Meet the Team
+            Meet The Team
             </h2>
-            <div className="w-[66px] h-1 bg-[#47d4aa] rounded" />
+            <div className="w-[66px] h-1 bg-[#47d4aa] rounded mt-3"/>
           </div>
 
           <p className="text-[16px] sm:text-[18px] font-poppins font-normal leading-relaxed text-white max-w-2xl">

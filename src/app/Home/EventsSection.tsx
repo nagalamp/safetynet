@@ -32,12 +32,15 @@ export default function EventsSection() {
     >
       <div className="max-w-[1202px] mx-auto flex flex-col gap-[34px] items-center">
         {/* Section Heading */}
-        <div className="flex flex-col gap-2 items-center w-[32%] px-4 sm:px-11">
-          <h2 className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight" style={{ lineHeight: '51px' }}>
-            Events Executed
-          </h2>
-          <div className="w-[66px] h-1 bg-[#47d4aa] rounded" />
-        </div>
+        <div className="flex flex-col gap-2 items-center w-[32%] px-4 sm:px-11  w-full">
+            
+   
+            
+            <h2 className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight" style={{ lineHeight: '51px' }}>
+           Events Exceuted
+            </h2>
+            <div className="w-[66px] h-1 bg-[#47d4aa] rounded mt-3"/>
+          </div>
 
         {/* Case Studies Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">

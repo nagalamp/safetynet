@@ -48,7 +48,7 @@ export default function KeyHighlightsSection({
 }: KeyHighlightsSectionProps) {
   return (
     <motion.section
-      className="w-full py-12 sm:py-16 lg:py-[48px] px-4 relative z-10 bg-[#040711]"
+      className="w-full py-12 sm:py-16 lg:py-[48px] px-4 relative z-10 bg-[#040711] rounded"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -59,6 +59,9 @@ export default function KeyHighlightsSection({
 
 
           <div className="flex flex-col gap-2 items-center w-[32%] px-4 sm:px-11  w-full">
+            
+   
+            
             <h2 className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight" style={{ lineHeight: '51px' }}>
               The Key Highlights
             </h2>
@@ -80,7 +83,7 @@ export default function KeyHighlightsSection({
                 }}
               >
                 <div
-                  className="flex flex-col items-center justify-start h-auto mb-10 md:mb-[42px] lg:mb-[84px] xl:mb-[86px] hover:shadow-2xl transition-all duration-300 backdrop-blur-sm"
+                  className="flex flex-col items-center justify-start h-auto mb-1 md:mb-[4px] lg:mb-[2px] xl:mb-[2px] hover:shadow-2xl transition-all duration-300 backdrop-blur-sm"
                   style={{
                     background: highlight.bgGradient,
                     backgroundColor: highlight.id === 1 ? '#2c0087' :
@@ -124,27 +127,15 @@ export default function KeyHighlightsSection({
               </motion.div>
             ))}
           </motion.div>
-
-          <motion.div
-            variants={fadeInUp}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-
-
-
-      
-      
-
-<motion.button
-  className="w-[300px] py-3 px-8 rounded text-[20px] font-outfit font-semibold transition-colors duration-300 bg-[#f05623] text-white"
-  whileHover={{ scale: 1.05 }}
-  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
->
-  GET IN TOUCH
-</motion.button>
+            <motion.button
+              className="w-[300px] py-3 px-8 rounded text-[20px] font-outfit font-semibold transition-colors duration-300 bg-[#f05623] text-white mt-12" 
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              GET IN TOUCH
+            </motion.button>
             
-          </motion.div>
+ 
         </div>
       </div>
     </motion.section>

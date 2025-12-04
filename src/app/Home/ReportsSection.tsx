@@ -1,34 +1,17 @@
 'use client';
+
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Button from '../../components/ui/Button';
-import { useState } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
+const containerVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-  hover: { scale: 1.03, opacity: 0.95, transition: { duration: 0.3, ease: "easeInOut" } }
-};
-
-const imageVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.5, ease: "easeOut" } },
-  hover: { scale: 1.05, transition: { duration: 0.3, ease: "easeInOut" } }
-};
-
-const buttonVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-  hover: { scale: 1.05, transition: { duration: 0.3 } },
-  tap: { scale: 0.95 }
+const cardHover = {
+  scale: 1.03,
+  transition: { duration: 0.3 }
 };
 
 const reportData = [
@@ -40,154 +23,125 @@ const reportData = [
 ];
 
 export default function ReportsSection() {
-  const cardsPerPage = 3;
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [cardsPerPage, setCardsPerPage] = useState(3);
+
+  // Responsive cards per page
+  useEffect(() => {
+    const updateCards = () => {
+      if (window.innerWidth < 640) setCardsPerPage(1);
+      else if (window.innerWidth < 1024) setCardsPerPage(2);
+      else setCardsPerPage(3);
+    };
+    updateCards();
+    window.addEventListener("resize", updateCards);
+    return () => window.removeEventListener("resize", updateCards);
+  }, []);
+
   const totalSlideGroups = Math.ceil(reportData.length / cardsPerPage);
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % totalSlideGroups);
-  };
+  }, [totalSlideGroups]);
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) =>
-      prev === 0 ? totalSlideGroups - 1 : prev - 1
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev === 0 ? totalSlideGroups - 1 : prev - 1));
+  }, [totalSlideGroups]);
+
+  const currentCards = useMemo(() => {
+    return reportData.slice(
+      currentSlide * cardsPerPage,
+      currentSlide * cardsPerPage + cardsPerPage
     );
-  };
-
-  const currentCards = reportData.slice(
-    currentSlide * cardsPerPage,
-    currentSlide * cardsPerPage + cardsPerPage
-  );
-
-  const goToSlide = (slideIndex: number) => {
-    setCurrentSlide(slideIndex);
-  };
+  }, [currentSlide, cardsPerPage]);
 
   return (
     <motion.section
-      className="w-full bg-[#150e24] py-[62px]"
+      className="w-full bg-[#150e24] py-16 px-4"
+      variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={staggerContainer}
+      viewport={{ once: true }}
     >
-      <div className="max-w-full mx-auto px-4">
-        <div className="flex flex-col  items-center w-full">
-          <motion.h2
-            className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold leading-tight text-white text-center mt-1.5"
-            style={{ lineHeight: '51px' }}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Reports
-          </motion.h2>
+      <div className="max-w-[1200px] mx-auto text-center">
 
-          <div className="flex flex-col items-center w-full max-w-[1202px] mt-3">
-            <motion.div
-              className="w-[66px] h-1 bg-[#47d4aa]"
-              initial={{ width: 0 }}
-              whileInView={{ width: 66 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            />
-
-            <motion.p
-              className="text-[18px] font-open-sans text-left font-normal leading-relaxed text-white w-full max-w-4xl mt-4 text-center">
-              Post-event reports are essential for evaluating outcomes and gathering feedback, providing insights into successes and areas for improvement. They support informed decision-making 
-              and facilitate continuous enhancement of future events.
-            </motion.p>
-
-            <motion.h3
-              className="text-[32px] font-outfit font-semibold leading-tight text-white text-center mt-[54px]"
-              style={{ lineHeight: '41px' }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              Safety Compliance Reports
-            </motion.h3>
-
-            {/* Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mt-[34px]">
-              {currentCards.map((report) => (
-                <motion.div
-                  key={report.id}
-                  className="flex flex-col gap-6 items-center w-full bg-white p-6 cursor-pointer group rounded"
-                  variants={cardVariants}
-                  whileHover="hover"
-                >
-                  <motion.div className="relative overflow-hidden rounded-md w-full" variants={imageVariants}>
-                    <Image
-                      src={report.image}
-                      alt={report.title}
-                      width={220}
-                      height={280}
-                      className="transition-transform duration-300 w-full"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300" />
-                  </motion.div>
-
-                  <motion.div
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    className="w-full max-w-[200px]"
-                  >
-                    <Button
-                      text="DOWNLOAD PDF"
-                      text_font_size="16"
-                      text_font_family="Outfit"
-                      text_font_weight="600"
-                      text_line_height="20px"
-                      text_color="#ffffff"
-                      fill_background_color="#f05623"
-                      border_border_radius="6px"
-                      padding="12px 24px"
-                      layout_width="full"
-                    />
-                  </motion.div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* ---------------- NAVIGATION (REPLACED WITH YOUR VERSION) ---------------- */}
-            <div className="flex items-center justify-center gap-6 mt-12">
-              <button
-                className="w-12 h-12 border border-[#5e5d77] rounded flex items-center justify-center hover:bg-[#2c0087] transition-colors"
-                onClick={prevSlide}
-              >
-                <Image src="/images/img_group_7.svg" alt="Previous" width={20} height={20} />
-              </button>
-
-              <span className="text-[32px] font-outfit font-medium leading-tight text-white">
-                {currentSlide + 1}/{totalSlideGroups}
-              </span>
-
-              <button
-                className="w-12 h-12 border border-[#5e5d77] rounded flex items-center justify-center hover:bg-[#2c0087] transition-colors"
-                onClick={nextSlide}
-              >
-                <Image src="/images/img_vector_stroke.svg" alt="Next" width={24} height={24} />
-              </button>
-            </div>
-
-            {/* Slide Indicators
-            <div className="flex justify-center mt-20 gap-2">
-              {Array.from({ length: totalSlideGroups }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${currentSlide === index ? 'bg-[#47d4aa]' : 'bg-[#5e5d77]'
-                    }`}
-                />
-              ))}
-            </div> */}
-
+      <div className="flex flex-col gap-2 items-center w-[32%] px-4 sm:px-11  w-full">
+            
+   
+            
+            <h2 className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight" style={{ lineHeight: '51px' }}>
+Reports            </h2>
+            <div className="w-[66px] h-1 bg-[#47d4aa] rounded mt-3"/>
           </div>
+
+        
+
+        {/* Description */}
+        <p className="text-[16px] md:text-[18px] font-open-sans text-white mt-4 max-w-3xl mx-auto">
+          Post-event reports are essential for evaluating outcomes and gathering feedback,
+          supporting informed decision-making and continuous improvement.
+        </p>
+
+        {/* Subtitle */}
+        <h3 className="text-[26px] md:text-[32px] font-outfit font-semibold text-white mt-12">
+          Safety Compliance Reports
+        </h3>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+          {currentCards.map((report) => (
+            <motion.div
+              key={report.id}
+              whileHover={cardHover}
+              className="bg-white rounded-md p-6 flex flex-col items-center gap-6 shadow-md"
+            >
+              <div className="relative overflow-hidden rounded-md w-full">
+                <Image
+                  src={report.image}
+                  alt={report.title}
+                  width={220}
+                  height={280}
+                  className="w-full object-cover"
+                  placeholder="blur"
+                  blurDataURL="/images/placeholder.png"
+                />
+              </div>
+
+              {/* Optimized Button (Tailwind) */}
+              <button className="w-full max-w-[200px] bg-[#f05623] text-white px-6 py-3 rounded-md font-outfit font-semibold text-[16px] hover:opacity-90 transition">
+                DOWNLOAD PDF
+              </button>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Navigation */}
+        <div className="flex items-center justify-center gap-6 mt-12">
+
+          {/* Prev */}
+          <button
+            onClick={prevSlide}
+            className="w-10 h-10 border border-[#5e5d77] rounded flex items-center justify-center hover:bg-[#2c0087] transition"
+          >
+            <svg width="20" height="20" fill="#fff">
+              <path d="M12 4l-6 6 6 6" stroke="#fff" strokeWidth="2" fill="none" />
+            </svg>
+          </button>
+
+          <span className="text-[24px] md:text-[32px] text-white font-outfit font-medium">
+            {currentSlide + 1}/{totalSlideGroups}
+          </span>
+
+          {/* Next */}
+          <button
+            onClick={nextSlide}
+            className="w-10 h-10 border border-[#5e5d77] rounded flex items-center justify-center hover:bg-[#2c0087] transition"
+          >
+            <svg width="20" height="20" fill="#fff">
+              <path d="M8 4l6 6-6 6" stroke="#fff" strokeWidth="2" fill="none" />
+            </svg>
+          </button>
+
         </div>
       </div>
     </motion.section>

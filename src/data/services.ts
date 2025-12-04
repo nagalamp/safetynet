@@ -2,6 +2,7 @@ export interface ServiceCard {
   id: number;
   title: string;
   image: string;
+  headerImage?: string;   // 👈 NEW FIELD ADDED
   description?: string;
   features?: string[];
   slug?: string;
@@ -12,6 +13,7 @@ export const services: ServiceCard[] = [
     id: 1,
     title: "Stand Auditing Services",
     image: "/images/img_frame_42.png",
+    headerImage: "/images/Services/StandAuditingServices/Stand Auditing Services.png",
     description: "Comprehensive stand auditing solutions",
     features: [
       "Site inspections and audits",
@@ -24,6 +26,7 @@ export const services: ServiceCard[] = [
     id: 2,
     title: "Health & Safety Services",
     image: "/images/Health_Safety_Services.png",
+    headerImage: "/images/Services/HealthSafetyServices/Health & Safety Services.png",
     description: "Comprehensive safety management solutions",
     features: [
       "Stand audits and contractor assessments",
@@ -36,6 +39,7 @@ export const services: ServiceCard[] = [
     id: 3,
     title: "Electrical Safety Services",
     image: "/images/img_frame_44.png",
+    headerImage: "/images/header_electrical_safety.png",
     description: "Ensuring safe electrical operations",
     features: [
       "Electrical inspections",
@@ -48,6 +52,7 @@ export const services: ServiceCard[] = [
     id: 4,
     title: "Fire Safety Services",
     image: "/images/img_frame_44_438x282.png",
+    headerImage: "/images/Services/FireSafetyServices/Fire Safety Services.png",
     description: "Protecting people and property from fire hazards",
     features: [
       "Fire risk assessments",
@@ -57,21 +62,10 @@ export const services: ServiceCard[] = [
     slug: "fire-safety-services",
   },
   {
-    id: 5,
-    title: "Sustainability Solutions Services",
-    image: "/images/img_frame_44_1.png",
-    description: "Eco-friendly and sustainable solutions",
-    features: [
-      "Environmental audits",
-      "Sustainability planning",
-      "Waste management"
-    ],
-    slug: "sustainability-solutions-services",
-  },
-  {
     id: 6,
     title: "Event Strategic Safety Services",
     image: "/images/img_frame_44_312x282.png",
+    headerImage: "/images/Services/EventStrategicSafetyServices/Event Strategic Safety Services.png",
     description: "Safety planning for events",
     features: [
       "Crowd management",
@@ -81,45 +75,10 @@ export const services: ServiceCard[] = [
     slug: "event-strategic-safety-services",
   },
   {
-    id: 7,
-    title: "Event Strategic Management Services",
-    image: "/images/img_frame_44_2.png",
-    description: "End-to-end event management solutions",
-    features: [
-      "Event planning",
-      "Vendor coordination",
-      "Operational safety"
-    ],
-    slug: "event-strategic-management-services",
-  },
-  {
-    id: 8,
-    title: "Venue Fire Safety Services",
-    image: "/images/img_frame_44_3.png",
-    description: "Fire safety solutions for venues",
-    features: [
-      "Fire drills",
-      "Equipment inspection",
-      "Emergency planning"
-    ],
-    slug: "venue-fire-safety-services",
-  },
-  {
-    id: 9,
-    title: "Health & Safety Training and Development Services",
-    image: "/images/img_frame_44_4.png",
-    description: "Training programs for health and safety",
-    features: [
-      "Employee training",
-      "Safety workshops",
-      "Certification programs"
-    ],
-    slug: "health-safety-training-and-development-services",
-  },
-  {
     id: 10,
     title: "Rigging Services",
     image: "/images/img_frame_44_5.png",
+    headerImage: "/images/Services/RiggingServices/Rigging Services.png",
     description: "Professional rigging solutions",
     features: [
       "Rigging inspections",
@@ -132,6 +91,7 @@ export const services: ServiceCard[] = [
     id: 11,
     title: "Engineering Services",
     image: "/images/img_2150440970_1.png",
+    headerImage: "/images/Services/EngineeringServices/Engineering Services.png",
     description: "Expert engineering solutions",
     features: [
       "Structural assessments",

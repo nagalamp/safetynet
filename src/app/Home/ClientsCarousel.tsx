@@ -19,7 +19,7 @@ export default function ClientsCarousel({ clients = [] }: ClientsCarouselProps) 
 
   return (
     <motion.div
-      className="relative w-full overflow-hidden py-6"
+      className="relative w-full overflow-hidden py-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}

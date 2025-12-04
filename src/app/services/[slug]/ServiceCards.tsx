@@ -1,4 +1,3 @@
-// components/ServiceCard.tsx
 'use client';
 
 import Image from 'next/image';
@@ -7,7 +6,7 @@ import { useState } from 'react';
 
 interface ServiceCardProps {
   icon: string;
-  hoverIcon: string;   // 👈 ADDED
+  hoverIcon: string;
   title: string;
   points: string[];
 }
@@ -17,52 +16,58 @@ export default function ServiceCard({ icon, hoverIcon, title, points }: ServiceC
 
   return (
     <motion.div
-      className="w-96 h-[443px] bg-[#232233] rounded p-8 flex flex-col items-start cursor-pointer"
+      className="w-96 h-[443px] bg-[#232233] rounded p-8 flex flex-col items-start cursor-pointer shadow-lg"
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      whileHover={{ scale: 1.05, y: -5, backgroundColor: "#47D4AA" }}
-      transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+      whileHover={{
+        scale: 1.05,
+        y: -5,
+        backgroundColor: "#47D4AA",
+      }}
+      transition={{ duration: 0.4, type: "spring", stiffness: 120 }}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      {/* Icon */}
+
+      {/* ICON WRAPPER */}
       <motion.div
-        className="w-24 h-24 mb-6 bg-white rounded-full flex items-center justify-center"
-        whileHover={{ scale: 1.2, rotate: 10 }}
+        className="w-24 h-24 mb-6 bg-white rounded-full flex items-center justify-center shadow-md"
+        animate={{ scale: isHover ? 1.15 : 1, rotate: isHover ? 5 : 0 }}
         transition={{ type: "spring", stiffness: 200 }}
       >
         <Image
-          src={isHover ? hoverIcon : icon}   // 👈 SWITCH ICON ON HOVER
+          src={isHover ? hoverIcon : icon}
           alt={`${title} icon`}
-          width={70}
-          height={70}
+          width={96}
+          height={96}
+          className="transition-all duration-300"
         />
       </motion.div>
 
-      {/* Title */}
+      {/* TITLE */}
       <motion.h2
-        className="text-3xl font-bold text-white mb-6"
-        animate={{ color: isHover ? "#000" : "#fff" }}
-        transition={{ duration: 0.3 }}
+        className="text-3xl font-semibold mb-6"
+        animate={{ color: isHover ? "#000" : "#ffffff" }}
+        transition={{ duration: 0.25 }}
       >
         {title}
       </motion.h2>
 
-      {/* Points list */}
+      {/* POINTS */}
       <motion.div
-        className="flex flex-col gap-4 text-[20px] leading-[28px]"
-        animate={{ color: isHover ? "#000" : "rgba(255,255,255,0.9)" }}
-        transition={{ duration: 0.3 }}
+        className="flex flex-col gap-4 text-[18px] leading-[26px]"
+        animate={{ color: isHover ? "#000" : "rgba(255,255,255,0.85)" }}
+        transition={{ duration: 0.25 }}
       >
         {points.map((point, index) => (
           <motion.div
             key={index}
             className="flex items-start gap-3"
-            initial={{ opacity: 0, x: -10 }}
+            initial={{ opacity: 0, x: -15 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 * index }}
+            transition={{ delay: index * 0.08 }}
           >
-            <span className="text-3xl mt-[2px]">→</span>
+            <span className="text-2xl mt-[2px]">→</span>
             <p>{point}</p>
           </motion.div>
         ))}
