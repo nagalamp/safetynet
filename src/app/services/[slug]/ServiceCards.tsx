@@ -28,7 +28,6 @@ export default function ServiceCard({ icon, hoverIcon, title, points }: ServiceC
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-
       {/* ICON WRAPPER */}
       <motion.div
         className="w-24 h-24 mb-6 bg-white rounded-full flex items-center justify-center shadow-md"
@@ -67,8 +66,17 @@ export default function ServiceCard({ icon, hoverIcon, title, points }: ServiceC
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.08 }}
           >
-            <span className="text-2xl mt-[2px]">→</span>
-            <p>{point}</p>
+            {/* FIXED ARROW ICON (never shrinks) */}
+            <Image
+              src={isHover ? "/images/img_vector_stroke_black.svg" : "/images/img_vector_stroke.svg"}
+              alt="icon"
+              width={14}
+              height={14}
+              className="w-[14px] h-[14px] mt-[5px] shrink-0"
+            />
+
+            {/* POINT TEXT */}
+            <p className="flex-1">{point}</p>
           </motion.div>
         ))}
       </motion.div>
