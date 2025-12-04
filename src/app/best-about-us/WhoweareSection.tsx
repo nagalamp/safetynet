@@ -9,16 +9,25 @@ const WhoweareSection = () => {
       {/* Who We Are Section */}
       <section className="w-full bg-[#070b23] py-16 px-4 sm:px-6 lg:px-0">
         <div className="w-full max-w-[1200px] mx-auto">
-          <div className="flex flex-col gap-4 justify-center items-center mb-10">
-            <h2 className="text-[28px] sm:text-[32px] lg:text-[40px] font-outfit font-semibold leading-[36px] sm:leading-[42px] lg:leading-[51px] text-center text-white">
-              Who We Are
+          
+
+
+
+          <div className="flex flex-col gap-2 items-center w-[32%] px-4 sm:px-11  w-full mb-10">
+            
+   
+            
+            <h2 className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight" style={{ lineHeight: '51px' }}>
+            Who We Are
             </h2>
-            <div className="w-[50px] sm:w-[66px] h-[4px] bg-[#47d4aa]"></div>
+            <div className="w-[66px] h-1 bg-[#47d4aa] rounded mt-3"/>
             <p className="text-[16px] sm:text-[18px] font-opensans font-normal leading-[22px] sm:leading-[25px] text-center text-white max-w-4xl">
               BEST B4-Global is a multinational safety, engineering, and sustainability solutions provider,
               delivering best-in-class support for exhibitions, events, and temporary structures.
             </p>
           </div>
+
+
 
           {/* Company Image */}
           <div className="w-full mb-0">
@@ -87,12 +96,19 @@ const WhoweareSection = () => {
       <section className="w-full py-16 px-4 sm:px-6 lg:px-0">
         <div className="w-full max-w-[1200px] mx-auto">
           <div className="flex flex-col gap-8 justify-start items-center">
-            <div className="flex flex-col gap-1 justify-start items-center">
-              <h2 className="text-[28px] sm:text-[32px] lg:text-[40px] font-outfit font-semibold leading-[36px] sm:leading-[42px] lg:leading-[51px] text-center text-white">
-                Ownership
-              </h2>
-              <div className="w-[50px] sm:w-[66px] h-[4px] bg-[#47d4aa]"></div>
-            </div>
+            
+
+
+            <div className="flex flex-col gap-2 items-center w-[32%] px-4 sm:px-11  w-full mb-10">
+            
+   
+            
+            <h2 className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight" style={{ lineHeight: '51px' }}>
+            Ownership
+            </h2>
+            <div className="w-[66px] h-1 bg-[#47d4aa] rounded mt-3"/>
+            
+          </div>
 
             {/* Stuart Mann Card */}
             <div className="w-full bg-[#272730] border-none rounded-[4px] flex flex-col lg:flex-row">
@@ -223,19 +239,19 @@ const WhoweareSection = () => {
       </section>
       <TeamSlider />
       {/* Information Sections */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-0">
+      <section className="w-full py-1 px-4 sm:px-6 lg:px-0">
         <div className="w-full max-w-[1200px] mx-auto flex flex-col gap-8">
           {/* Staff Qualifications */}
           <div
-            className="w-full border border-[#ffffff33] rounded-[4px] bg-[#070b23] bg-cover bg-center p-6 sm:p-8 lg:p-[58px]"
+            className="w-full border rounded border-[#ffffff33]  bg-cover bg-center p-6 sm:p-8 lg:p-[58px]"
             style={{
-              backgroundImage: 'linear-gradient(rgba(7, 11, 35, 0.1), rgba(7, 11, 35, 0.1)), url(/images/img_image_107.png)',
+              backgroundImage: ' url(/images/AboutUs/StaffQualifications.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              opacity: '0.5'
+            
             }}
           >
-            <div className="flex flex-col gap-6 justify-start items-center">
+            <div className="flex flex-col gap-6 justify-start rounded">
               <h3 className="text-[24px] sm:text-[28px] lg:text-[32px] font-outfit font-bold leading-[30px] sm:leading-[36px] lg:leading-[41px] text-left text-white">
                 Staff Qualifications
               </h3>
@@ -267,7 +283,7 @@ const WhoweareSection = () => {
 
           {/* Freelancers and Temporary Staff */}
           <div
-            className="w-full border border-[#ffffff33] rounded-[4px] bg-[#070b23] bg-cover bg-center p-6 sm:p-8 lg:p-[62px]"
+            className="w-full border border-[#ffffff33] rounded bg-[#070b23] bg-cover bg-center p-6 sm:p-8 lg:p-[62px]"
             style={{ backgroundImage: 'url(/images/img_image_14.png)' }}
           >
             <div className="flex flex-col gap-6 justify-center items-start">
@@ -292,7 +308,14 @@ const WhoweareSection = () => {
           {/* Corporate Governance */}
           <div
             className="w-full bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/img_image_15.png)' }}
+            
+            style={{
+              backgroundImage: ' url(/images/AboutUs/CorporateGovernance.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            
+            }}
+            
           >
             <div className="w-full border border-[#ffffff2d] rounded-[4px] bg-[#070b23e5] p-6 sm:p-8 lg:p-16">
               <div className="flex flex-col gap-6 justify-center items-start">

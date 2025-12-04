@@ -10,7 +10,7 @@ export default function HeroSection() {
       transition={{ duration: 1 }}
     >
       <motion.h2
-        className="max-w-[678px] font-outfit font-semibold text-[40px] leading-[120%] text-center text-[#47D4AA]"
+        className="max-w-[678px] font-outfit font-semibold text-[40px] leading-[120%] text-center text-white"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}

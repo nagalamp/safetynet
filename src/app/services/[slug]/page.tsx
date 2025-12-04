@@ -7,7 +7,9 @@ import HeroSection from '../../best-services/HeroSection';
 import ContactSection from '../../Home/ContactSection';
 import ServicesSectionHorizontal from '../../Home/ServicesSectionHorizontal';
 import ServiceCard from './ServiceCards';
+import ServiceHead from './ServiceHead'
 import { services } from '../../../data/services';
+
 
 interface FormData {
   inquiryType: string;
@@ -137,26 +139,48 @@ export default function ServiceDetailPage() {
 
       {/* Service Details */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-0">
-        <div className="w-full max-w-[1200px] mx-auto bg-[#070B23]">
-          <div className="flex flex-col gap-2 justify-start items-center mb-10">
-            <h1 className="text-[28px] sm:text-[32px] lg:text-[36px] font-outfit font-semibold leading-[36px] sm:leading-[40px] lg:leading-[46px] text-left text-white">
-              {service.title}
-            </h1>
-            <div className="w-[50px] sm:w-[66px] h-[4px] bg-[#47d4aa]"></div>
-          </div>
+        <div className="w-full max-w-[1200px] mx-auto bg-[#070B23] rounded mb-6">
 
+
+       
+
+
+   
+
+          <ServiceHead
+            title={service.title}
+            description={service.description}
+            image={service.serviceImage}
+          />
+
+
+
+<div className="flex flex-col gap-2 items-center w-full mb-12 mt-12">
+        <div className="flex flex-col gap-2 items-center w-[32%] px-4 sm:px-11  w-full">
+            
+   
+            
+            <h2 className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight" style={{ lineHeight: '51px' }}>
+{service.title}            </h2>
+            <div className="w-[66px] h-1 bg-[#47d4aa] rounded mt-3"/>
+          </div>
+        </div>
           {/* Service Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-5 mb-30">
             {filteredServiceCards.map((card, index) => (
       
+<div key={index} className="w-full flex flex-col gap-6">
 
-          <ServiceCard
-            key={index}
-            icon={card.icon}
-            hoverIcon={card.hoverIcon}
-            title={card.title}
-            points={card.points}
-          />
+
+
+<ServiceCard
+  icon={card.icon}
+  hoverIcon={card.hoverIcon}
+  title={card.title}
+  points={card.points}
+/>
+
+</div>
 
             ))}
           </div>

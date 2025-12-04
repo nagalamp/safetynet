@@ -93,7 +93,7 @@ Reports            </h2>
             <motion.div
               key={report.id}
               whileHover={cardHover}
-              className="bg-white rounded-md p-6 flex flex-col items-center gap-6 shadow-md"
+              className="bg-white rounded p-6 flex flex-col items-center gap-6 shadow-md"
             >
               <div className="relative overflow-hidden rounded-md w-full">
                 <Image
@@ -108,7 +108,7 @@ Reports            </h2>
               </div>
 
               {/* Optimized Button (Tailwind) */}
-              <button className="w-full max-w-[200px] bg-[#f05623] text-white px-6 py-3 rounded-md font-outfit font-semibold text-[16px] hover:opacity-90 transition">
+              <button className="w-full max-w-[300px] bg-[#f05623] text-white px-6 py-3  font-outfit font-semibold text-[16px] hover:opacity-90 transition">
                 DOWNLOAD PDF
               </button>
             </motion.div>

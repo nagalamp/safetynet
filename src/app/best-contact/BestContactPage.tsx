@@ -58,7 +58,7 @@ export default function BestContactPage() {
           <div className="w-full max-w-[1200px] mx-auto">
             <div className="flex flex-col gap-4 justify-center items-center mb-10">
 
-              <div className="w-[50px] sm:w-[66px] h-[4px] bg-[#47d4aa]"></div>
+              
               <p className="text-[16px] sm:text-[18px] font-opensans font-normal leading-[22px] sm:leading-[25px] text-center text-white max-w-4xl">
                 Content goes here
               </p>

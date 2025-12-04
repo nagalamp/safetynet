@@ -42,11 +42,14 @@ export default function TeamSlider({ teamMembers = defaultTeamMembers }: TeamSli
         <section className="w-full bg-[#070b23] py-16 px-4 sm:px-6">
             <div className="w-full max-w-[1200px] mx-auto">
                 {/* Header */}
-                <div className="flex flex-col gap-2 justify-start items-center mb-10">
-                    <h2 className="text-[28px] sm:text-[32px] lg:text-[36px] font-outfit font-semibold leading-[36px] sm:leading-[40px] lg:leading-[46px] text-left text-white">
+                <div className="flex flex-col gap-2 items-center w-full mb-10 px-4 sm:px-11">
+                    <h2
+                        className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight"
+                        style={{ lineHeight: '51px' }}
+                    >
                         Our Senior Team
                     </h2>
-                    <div className="w-[50px] sm:w-[66px] h-[4px] bg-[#47d4aa]"></div>
+                    <div className="w-[66px] h-1 bg-[#47d4aa] rounded mt-3" />
                 </div>
 
                 {/* Slider */}
@@ -109,7 +112,7 @@ export default function TeamSlider({ teamMembers = defaultTeamMembers }: TeamSli
                 </div>
 
                 {/* ---------------- NAVIGATION ---------------- */}
-                <div className="flex items-center justify-center gap-6 mt-12">
+                <div className="flex items-center justify-center gap-4 mt-12">
                     <button
                         className="w-12 h-12 border border-[#5e5d77] rounded flex items-center justify-center hover:bg-[#2c0087] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         onClick={() => setCurrentSlide((prev) => Math.max(prev - 1, 0))}
@@ -118,7 +121,7 @@ export default function TeamSlider({ teamMembers = defaultTeamMembers }: TeamSli
                         <Image src="/images/img_group_7.svg" alt="Previous" width={20} height={20} />
                     </button>
 
-                    <span className="text-[32px] font-outfit font-medium leading-tight text-white">
+                    <span className="text-[24px] sm:text-[28px] font-outfit font-medium leading-tight text-white px-4">
                         {currentSlide + 1}/{totalSlides}
                     </span>
 
@@ -183,6 +186,3 @@ const defaultTeamMembers: TeamMember[] = [
         image: '/images/team/bhuvan-vc.jpg',
     },
 ];
-
-
-
