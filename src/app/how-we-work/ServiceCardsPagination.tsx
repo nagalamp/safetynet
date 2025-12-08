@@ -64,7 +64,7 @@ function ServiceCard({ icon, hoverIcon, title, description }: ServiceCardProps) 
 }
 
 /* ------------------------------------------------------------------
-   SERVICES DATA (DESCRIPTION-BASED)
+   SERVICES DATA
 -------------------------------------------------------------------*/
 const servicesData = [
   {
@@ -105,7 +105,7 @@ const servicesData = [
 ];
 
 /* ------------------------------------------------------------------
-   MAIN COMPONENT WITH PAGINATION — UPDATED FOR EQUAL GAPS
+   MAIN COMPONENT WITH FULL FIX
 -------------------------------------------------------------------*/
 export default function ServiceCardPagination() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -130,16 +130,19 @@ export default function ServiceCardPagination() {
 
   return (
     <div className="w-full flex flex-col items-center bg-[#0F0F1A] py-10">
+      
       {/* SLIDER */}
       <div className="relative overflow-hidden w-full max-w-[1200px]">
         <div
-          className="flex transition-transform duration-500 ease-in-out gap-10"
-          style={{ transform: `translateX(-${currentSlide * (100 / slidesToShow)}%)` }}
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${currentSlide * (100 / slidesToShow)}%)`,
+          }}
         >
           {servicesData.map((service, index) => (
             <div
               key={index}
-              className="flex-shrink-0"
+              className="flex-shrink-0 px-5" // equal spacing fix
               style={{ width: `${100 / slidesToShow}%` }}
             >
               <ServiceCard
@@ -155,7 +158,7 @@ export default function ServiceCardPagination() {
 
       {/* PAGINATION */}
       <div className="flex items-center justify-center gap-4 mt-8">
-
+        
         {/* PREV */}
         <button
           className="w-12 h-12 border border-[#5e5d77] rounded flex items-center justify-center hover:bg-[#2c0087] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"

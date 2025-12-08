@@ -22,7 +22,7 @@ export default function ServiceHead({
           {/* Title */}
           <div className="flex flex-col gap-3">
             <h2 className="text-white font-outfit font-bold text-3xl leading-[120%]">
-              {title} dd
+              {title}
             </h2>
           </div>
 
