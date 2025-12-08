@@ -5,33 +5,33 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 /* ------------------------------------------------------------------
-   SERVICE CARD COMPONENT
+   SERVICE CARD COMPONENT — UPDATED (NO FIXED WIDTH)
 -------------------------------------------------------------------*/
 interface ServiceCardProps {
   icon: string;
   hoverIcon: string;
   title: string;
-  points: string[];
+  description: string;
 }
 
-function ServiceCard({ icon, hoverIcon, title, points }: ServiceCardProps) {
+function ServiceCard({ icon, hoverIcon, title, description }: ServiceCardProps) {
   const [isHover, setIsHover] = useState(false);
 
   return (
     <motion.div
-      className="w-96 h-[443px] bg-[#232233] rounded p-8 flex flex-col items-start cursor-pointer shadow-lg"
+      className="w-full h-[443px] bg-[#232233] rounded p-8 flex flex-col items-start cursor-pointer shadow-lg"
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      whileHover={{ scale: 1.05, y: -5, backgroundColor: "#47D4AA" }}
-      transition={{ duration: 0.4, type: "spring", stiffness: 120 }}
+      whileHover={{ scale: 1.05, y: -5, backgroundColor: '#47D4AA' }}
+      transition={{ duration: 0.4, type: 'spring', stiffness: 120 }}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
       {/* ICON */}
       <motion.div
-        className="w-24 h-24 mb-6 bg-white rounded-full flex items-center justify-center shadow-md"
+        className="w-24 h-24 mb-6 rounded flex items-center justify-center shadow-md"
         animate={{ scale: isHover ? 1.15 : 1, rotate: isHover ? 5 : 0 }}
-        transition={{ type: "spring", stiffness: 200 }}
+        transition={{ type: 'spring', stiffness: 200 }}
       >
         <Image
           src={isHover ? hoverIcon : icon}
@@ -45,100 +45,72 @@ function ServiceCard({ icon, hoverIcon, title, points }: ServiceCardProps) {
       {/* TITLE */}
       <motion.h2
         className="text-3xl font-semibold mb-6"
-        animate={{ color: isHover ? "#000" : "#ffffff" }}
+        animate={{ color: isHover ? '#000' : '#ffffff' }}
         transition={{ duration: 0.25 }}
       >
         {title}
       </motion.h2>
 
-      {/* POINTS */}
-      <motion.div
-        className="flex flex-col gap-4 text-[18px] leading-[26px]"
-        animate={{ color: isHover ? "#000" : "rgba(255,255,255,0.85)" }}
+      {/* DESCRIPTION */}
+      <motion.p
+        className="text-[18px] leading-[26px]"
+        animate={{ color: isHover ? '#000' : 'rgba(255,255,255,0.85)' }}
         transition={{ duration: 0.25 }}
       >
-        {points.map((point, index) => (
-          <motion.div
-            key={index}
-            className="flex items-start gap-3"
-            initial={{ opacity: 0, x: -15 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.08 }}
-          >
-            <Image
-              src={isHover ? "/images/img_vector_stroke_black.svg" : "/images/img_vector_stroke.svg"}
-              alt="bullet icon"
-              width={14}
-              height={14}
-              className="w-[14px] h-[14px] mt-[5px] shrink-0"
-            />
-            <p className="flex-1">{point}</p>
-          </motion.div>
-        ))}
-      </motion.div>
+        {description}
+      </motion.p>
     </motion.div>
   );
 }
 
 /* ------------------------------------------------------------------
-   SERVICES DATA
+   SERVICES DATA (DESCRIPTION-BASED)
 -------------------------------------------------------------------*/
 const servicesData = [
   {
     icon: "/images/Services/EventStrategicSafetyServices/Risk_Assessment_Planning_01.svg",
     hoverIcon: "/images/Services/EventStrategicSafetyServices/Risk_Assessment_Planning_02.svg",
-    title: "Risk Assessment & Planning",
-    points: [
-      "Review of event activities, venue hazards, and external threats",
-      "Development of a comprehensive safety management plan",
-    ],
+    title: "Carbon FootprintReduction Policy",
+    description:
+      "Develop a policy aimed at minimizing carbon footprints in the events industry.",
   },
   {
     icon: "/images/Services/EventStrategicSafetyServices/Capacity_Planning_01.svg",
     hoverIcon: "/images/Services/EventStrategicSafetyServices/Capacity_Planning_02.svg",
-    title: "Capacity Planning",
-    points: [
-      "Evaluation of venue capacity and crowd density limits",
-      "Measures to prevent overcrowding and ensure safe attendee flow",
-    ],
+    title: "Material Classification",
+    description:
+      "We evaluate venue capacity, crowd density limits, and implement strategies to avoid overcrowding while ensuring free attendee movement.",
   },
   {
     icon: "/images/Services/EventStrategicSafetyServices/Show_Day_01.svg",
     hoverIcon: "/images/Services/EventStrategicSafetyServices/Show_Day_02.svg",
     title: "Crowd Management",
-    points: [
-      "Strategies for controlling entry, managing queues, and directing movement",
-      "Deployment of trained personnel to monitor and guide crowds",
-    ],
+    description:
+      "We design crowd movement strategies, manage entry and queues, and deploy trained personnel to ensure safe and efficient crowd flow.",
   },
   {
     icon: "/images/Services/EventStrategicSafetyServices/Crisis_Management_01.svg",
     hoverIcon: "/images/Services/EventStrategicSafetyServices/Crisis_Management_02.svg",
     title: "Crisis Management",
-    points: [
-      "Preparation of response plans for potential emergencies or incidents",
-      "Training staff to handle medical, security, and operational issues",
-    ],
+    description:
+      "We prepare detailed response plans for emergencies and equip your staff with essential training for medical, security, and operational risks.",
   },
   {
     icon: "/images/Services/EventStrategicSafetyServices/Capacity_Planning_01-1.svg",
     hoverIcon: "/images/Services/EventStrategicSafetyServices/Capacity_Planning_02-1.svg",
     title: "Contingency Planning",
-    points: [
-      "Establishment of backup plans for critical event functions and services",
-      "Identification of alternative arrangements in case of failures",
-    ],
+    description:
+      "We establish reliable backup plans to ensure continuity of essential event functions and identify alternatives for potential failures.",
   },
 ];
 
 /* ------------------------------------------------------------------
-   MAIN COMPONENT WITH PAGINATION
+   MAIN COMPONENT WITH PAGINATION — UPDATED FOR EQUAL GAPS
 -------------------------------------------------------------------*/
 export default function ServiceCardPagination() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(3);
 
-  // Responsive slides
   useEffect(() => {
     const getSlidesToShow = () => {
       const width = window.innerWidth;
@@ -157,24 +129,24 @@ export default function ServiceCardPagination() {
   const totalSlides = Math.ceil(servicesData.length / slidesToShow);
 
   return (
-    <div className="w-full flex flex-col items-center bg-[#0F0F1A] py-1">
+    <div className="w-full flex flex-col items-center bg-[#0F0F1A] py-10">
       {/* SLIDER */}
       <div className="relative overflow-hidden w-full max-w-[1200px]">
         <div
-          className="flex transition-transform duration-500 ease-in-out"
+          className="flex transition-transform duration-500 ease-in-out gap-10"
           style={{ transform: `translateX(-${currentSlide * (100 / slidesToShow)}%)` }}
         >
           {servicesData.map((service, index) => (
             <div
               key={index}
-              className="flex-shrink-0 px-6"
+              className="flex-shrink-0"
               style={{ width: `${100 / slidesToShow}%` }}
             >
               <ServiceCard
                 icon={service.icon}
                 hoverIcon={service.hoverIcon}
                 title={service.title}
-                points={service.points}
+                description={service.description}
               />
             </div>
           ))}
@@ -183,6 +155,8 @@ export default function ServiceCardPagination() {
 
       {/* PAGINATION */}
       <div className="flex items-center justify-center gap-4 mt-8">
+
+        {/* PREV */}
         <button
           className="w-12 h-12 border border-[#5e5d77] rounded flex items-center justify-center hover:bg-[#2c0087] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={() => setCurrentSlide((prev) => Math.max(prev - 1, 0))}
@@ -191,10 +165,12 @@ export default function ServiceCardPagination() {
           <Image src="/images/img_group_7.svg" alt="Previous" width={20} height={20} />
         </button>
 
+        {/* PAGE NUMBER */}
         <span className="text-[20px] sm:text-[24px] font-outfit font-medium text-white px-4">
           {currentSlide + 1}/{totalSlides}
         </span>
 
+        {/* NEXT */}
         <button
           className="w-12 h-12 border border-[#5e5d77] rounded flex items-center justify-center hover:bg-[#2c0087] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={() => setCurrentSlide((prev) => Math.min(prev + 1, totalSlides - 1))}
@@ -202,6 +178,7 @@ export default function ServiceCardPagination() {
         >
           <Image src="/images/img_vector_stroke.svg" alt="Next" width={24} height={24} />
         </button>
+
       </div>
     </div>
   );

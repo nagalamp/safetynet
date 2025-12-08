@@ -30,7 +30,7 @@ export default function ServiceCard({ icon, hoverIcon, title, points }: ServiceC
     >
       {/* ICON WRAPPER */}
       <motion.div
-        className="w-24 h-24 mb-6 bg-white rounded-full flex items-center justify-center shadow-md"
+        className="w-24 h-24 mb-6  rounded-full flex items-center justify-center shadow-md"
         animate={{ scale: isHover ? 1.15 : 1, rotate: isHover ? 5 : 0 }}
         transition={{ type: "spring", stiffness: 200 }}
       >

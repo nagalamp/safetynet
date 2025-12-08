@@ -57,7 +57,7 @@ export default function ContactSection() {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 justify-between items-stretch w-full">
 
             {/* Contact Image */}
-            <div className="w-full lg:w-1/2 flex flex-col items-center justify-center space-y-10">
+        <div className="w-full lg:w-1/2 flex flex-col items-center justify-center space-y-10">
   
   {/* CONTACT BLOCK — 1 */}
   <div className="w-full max-w-[583px]">
@@ -65,8 +65,17 @@ export default function ContactSection() {
 
       {/* Icon */}
       <div className="relative w-[40px] h-[40px] flex-none">
-        <div className="absolute left-[33.33%] right-[33.33%] top-[25%] bottom-[41.67%] bg-[#47D4AA] rounded-sm"></div>
-        <div className="absolute left-[16.67%] right-[16.67%] top-[8.33%] bottom-[8.34%] bg-[#47D4AA] rounded-sm"></div>
+      <Image
+        src="/images/ContactUs/bx_map.png"
+        alt="Location Icon"
+        width={13.33}
+        height={13.33}
+        style={{
+          width: "26.67px",
+          height: "33.33px",
+          objectFit: "contain"
+        }}
+      />
       </div>
 
       {/* Content */}
@@ -103,8 +112,17 @@ export default function ContactSection() {
 
       {/* Icon */}
       <div className="relative w-[40px] h-[40px] flex-none">
-        <div className="absolute left-[33.33%] right-[33.33%] top-[25%] bottom-[41.67%] bg-[#47D4AA] rounded-sm"></div>
-        <div className="absolute left-[16.67%] right-[16.67%] top-[8.33%] bottom-[8.34%] bg-[#47D4AA] rounded-sm"></div>
+      <Image
+        src="/images/ContactUs/bx_map.png"
+        alt="Location Icon"
+        width={13.33}
+        height={13.33}
+        style={{
+          width: "26.67px",
+          height: "33.33px",
+          objectFit: "contain"
+        }}
+      />
       </div>
 
       {/* Content */}

@@ -165,10 +165,11 @@ export default function HowWeWork() {
 
               <ServiceCardPagination/>
             </div>
-             <ContactSection />
+            
 
           </div>
         </section>
+        <ContactSection />
       </main>
 
       <Footer />
