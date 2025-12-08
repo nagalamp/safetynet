@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import HeroSection from './HeroSection';
+import ContactSection from './ContactSection2';
 
 export default function BestContactPage() {
   const [loading, setLoading] = useState(true);
@@ -43,7 +44,7 @@ export default function BestContactPage() {
       <div
         className="relative"
         style={{
-          backgroundImage: `url('/images/homeBannerBg.png')`,
+          backgroundImage: `url('/images/ContactUs/Banner-2.png')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat'
@@ -55,17 +56,15 @@ export default function BestContactPage() {
 
       <main>
         <section className="w-full bg-[#070b23] py-16 px-4 sm:px-6 lg:px-0">
-          <div className="w-full max-w-[1200px] mx-auto">
-            <div className="flex flex-col gap-4 justify-center items-center mb-10">
+        
+           
 
               
-              <p className="text-[16px] sm:text-[18px] font-opensans font-normal leading-[22px] sm:leading-[25px] text-center text-white max-w-4xl">
-                Content goes here
-              </p>
-            </div>
+                 <ContactSection/>
+         
 
 
-          </div>
+       
         </section></main>
 
       <Footer />
