@@ -24,19 +24,19 @@ export default function FoodHygieneSection({ onGetInTouch }: { onGetInTouch: () 
 
   const [serviceHighlights] = useState<ServiceHighlight[]>([
     {
-      image: '/images/HowWeDoIt/Compliance_Safety_01.svg',
+      image: '/images/HowWeDoIt/complience.png',
       title: 'Compliance & Safety',
       description: 'Ensuring proper food handling, cleanliness, and adherence to safety standards.',
       bgGradient: 'linear-gradient(180deg,#2c0087 0%, #180048 100%)'
     },
     {
-      image: '/images/HowWeDoIt/Hygiene_Practices_01.svg',
+      image: '/images/HowWeDoIt/hygene.png',
       title: 'Hygiene Practices',
       description: 'Maintaining sanitation, surface cleanliness, and personal hygiene protocols.',
       bgGradient: 'linear-gradient(180deg,#47d4aa 0%, #016c4c 100%)'
     },
     {
-      image: '/images/HowWeDoIt/Storage_Waste_01.svg',
+      image: '/images/HowWeDoIt/storage.png',
       title: 'Storage & Waste',
       description: 'Proper food storage, temperature control, and responsible waste disposal.',
       bgGradient: 'linear-gradient(180deg,#f05623 0%, #822101 100%)'
@@ -45,7 +45,7 @@ export default function FoodHygieneSection({ onGetInTouch }: { onGetInTouch: () 
 
   return (
     <motion.section
-      className="w-full py-12 sm:py-16 lg:py-[48px] px-4 relative z-10 bg-[#040711] rounded"
+      className="w-full py-12 sm:py-16 lg:py-[48px] px-4 relative z-10  rounded mt-15"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -56,7 +56,7 @@ export default function FoodHygieneSection({ onGetInTouch }: { onGetInTouch: () 
         <div className="flex flex-col gap-9 items-center w-full">
 
           {/* HEADING */}
-          <div className="flex flex-col gap-2 items-center w-full px-4 sm:px-11">
+          <div className="flex flex-col gap-8 items-center w-full px-4 sm:px-11">
             <h2 className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight">
               Food & Hygiene
             </h2>
