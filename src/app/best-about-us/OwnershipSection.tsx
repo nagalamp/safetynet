@@ -1,13 +1,30 @@
 'use client';
 
 import Image from 'next/image';
+import { motion, useAnimation, useInView } from 'framer-motion';
+import { useRef, useEffect } from 'react';
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const OwnershipSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
   return (
     <section className="w-full py-16 px-4 sm:px-6 lg:px-0 bg-[#070B23]">
       <div className="w-full max-w-[1200px] mx-auto">
         <div className="flex flex-col gap-8 justify-start items-center">
-          <div className="flex flex-col gap-2 items-center w-[32%] px-4 sm:px-11 w-full mb-10">
+          <div className="flex flex-col gap-2 items-center w-full mb-10">
             <h2
               className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight"
               style={{ lineHeight: '51px' }}
@@ -18,7 +35,14 @@ const OwnershipSection = () => {
           </div>
 
           {/* Stuart Mann Card */}
-          <div className="w-full bg-[#272730] border-none rounded-[4px] flex flex-col lg:flex-row">
+          <motion.div
+            ref={ref}
+            className="w-full bg-[#272730] border-none rounded-[4px] flex flex-col lg:flex-row"
+            variants={cardVariants}
+            initial="hidden"
+            animate={controls}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
             <div className="flex-1 p-6 sm:p-8 lg:p-[38px] lg:mt-[58px]">
               <div className="flex flex-col gap-6 justify-start items-start">
                 <h3 className="text-[24px] sm:text-[28px] lg:text-[32px] font-outfit font-bold leading-[30px] sm:leading-[36px] lg:leading-[41px] text-left text-white">
@@ -52,10 +76,17 @@ const OwnershipSection = () => {
                 className="w-full h-auto rounded-r-[3px] object-cover"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Naveen KS Card */}
-          <div className="w-full bg-[#2c0087] border-none rounded-[4px] flex flex-col lg:flex-row gap-10">
+          <motion.div
+            className="w-full bg-[#2c0087] border-none rounded-[4px] flex flex-col lg:flex-row gap-10"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <div className="flex-1 p-6 sm:p-8 lg:mt-[58px]">
               <div className="flex flex-col gap-8 justify-start items-center">
                 <div className="flex flex-col gap-1 justify-start items-start w-full">
@@ -71,6 +102,7 @@ const OwnershipSection = () => {
                     </p>
                   </div>
                 </div>
+
                 <div className="flex flex-col gap-6 justify-start items-center w-full">
                   <p className="text-[16px] sm:text-[18px] font-opensans font-normal leading-[24px] sm:leading-[27px] text-left text-white">
                     Naveen KS is a highly accomplished and qualified engineer with over 20 years of experience in the industry.
@@ -85,6 +117,7 @@ const OwnershipSection = () => {
                 </div>
               </div>
             </div>
+
             <div className="w-full lg:w-1/2 lg:self-center">
               <Image
                 src="/images/img_rectangle_774.png"
@@ -94,10 +127,17 @@ const OwnershipSection = () => {
                 className="w-full h-auto rounded-r-[3px] object-cover"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Duncan Robertson Card */}
-          <div className="w-full bg-[#272730] border-none rounded-[4px] flex flex-col lg:flex-row gap-10">
+          <motion.div
+            className="w-full bg-[#272730] border-none rounded-[4px] flex flex-col lg:flex-row gap-10"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             <div className="flex-1 p-6 sm:p-8 lg:mt-[58px]">
               <div className="flex flex-col gap-8 justify-start items-center">
                 <div className="flex flex-col justify-start items-start w-full">
@@ -111,6 +151,7 @@ const OwnershipSection = () => {
                     Cert.NEBOSH, Tech IOSH, IFPO, NIC+EIC Electrical Inspection
                   </p>
                 </div>
+
                 <div className="flex flex-col gap-6 justify-start items-center w-full">
                   <p className="text-[16px] sm:text-[18px] font-opensans font-normal leading-[24px] sm:leading-[27px] text-left text-white">
                     Duncan boasts over 25 years of experience providing high-level safety services within the event and exhibition industry.
@@ -125,6 +166,7 @@ const OwnershipSection = () => {
                 </div>
               </div>
             </div>
+
             <div className="w-full lg:w-1/2 lg:self-center">
               <Image
                 src="/images/img_rectangle_61_798x600.png"
@@ -134,7 +176,7 @@ const OwnershipSection = () => {
                 className="w-full h-auto rounded-r-[3px] object-cover"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
