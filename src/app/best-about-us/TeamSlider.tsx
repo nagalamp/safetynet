@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -18,9 +18,12 @@ interface TeamSliderProps {
 }
 
 export default function TeamSlider({ teamMembers = defaultTeamMembers }: TeamSliderProps) {
-    const [currentSlide, setCurrentSlide] = useState(0);
     const [slidesToShow, setSlidesToShow] = useState(3);
+    const [isDragging, setIsDragging] = useState(false);
+    const carouselRef = useRef<HTMLDivElement>(null);
+    const [width, setWidth] = useState(0);
 
+    // Responsive slides
     useEffect(() => {
         const getSlidesToShow = () => {
             const width = window.innerWidth;
@@ -28,15 +31,25 @@ export default function TeamSlider({ teamMembers = defaultTeamMembers }: TeamSli
             if (width < 1024) return 2;
             return 3;
         };
-
         const handleResize = () => setSlidesToShow(getSlidesToShow());
-
         setSlidesToShow(getSlidesToShow());
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const totalSlides = Math.ceil(teamMembers.length / slidesToShow);
+    // Calculate drag constraints
+    useEffect(() => {
+        if (carouselRef.current) {
+            setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
+        }
+        const handleResize = () => {
+            if (carouselRef.current) {
+                setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [slidesToShow, teamMembers]);
 
     return (
         <section className="w-full bg-[#070b23] py-16 px-4 sm:px-6">
@@ -52,16 +65,22 @@ export default function TeamSlider({ teamMembers = defaultTeamMembers }: TeamSli
                     <div className="w-[66px] h-1 bg-[#47d4aa] rounded mt-3" />
                 </div>
 
-                {/* Slider */}
+                {/* Slider with drag */}
                 <div className="relative overflow-hidden">
-                    <div
-                        className="flex transition-transform duration-500 ease-in-out"
-                        style={{ transform: `translateX(-${currentSlide * (100 / slidesToShow)}%)` }}
+                    <motion.div
+                        ref={carouselRef}
+                        className="flex gap-6 cursor-grab"
+                        drag="x"
+                        dragConstraints={{ left: -width, right: 0 }}
+                        dragElastic={0.1}
+                        whileTap={{ cursor: 'grabbing' }}
+                        onDragStart={() => setIsDragging(true)}
+                        onDragEnd={() => setTimeout(() => setIsDragging(false), 50)}
                     >
                         {teamMembers.map((member, index) => (
                             <motion.div
                                 key={member.id}
-                                className="flex-shrink-0 px-3"
+                                className="flex-shrink-0"
                                 style={{ width: `${100 / slidesToShow}%` }}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -108,30 +127,7 @@ export default function TeamSlider({ teamMembers = defaultTeamMembers }: TeamSli
                                 </div>
                             </motion.div>
                         ))}
-                    </div>
-                </div>
-
-                {/* ---------------- NAVIGATION ---------------- */}
-                <div className="flex items-center justify-center gap-4 mt-12">
-                    <button
-                        className="w-12 h-12 border border-[#5e5d77] rounded flex items-center justify-center hover:bg-[#2c0087] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        onClick={() => setCurrentSlide((prev) => Math.max(prev - 1, 0))}
-                        disabled={currentSlide === 0}
-                    >
-                        <Image src="/images/img_group_7.svg" alt="Previous" width={20} height={20} />
-                    </button>
-
-                    <span className="text-[24px] sm:text-[28px] font-outfit font-medium leading-tight text-white px-4">
-                        {currentSlide + 1}/{totalSlides}
-                    </span>
-
-                    <button
-                        className="w-12 h-12 border border-[#5e5d77] rounded flex items-center justify-center hover:bg-[#2c0087] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        onClick={() => setCurrentSlide((prev) => Math.min(prev + 1, totalSlides - 1))}
-                        disabled={currentSlide === totalSlides - 1}
-                    >
-                        <Image src="/images/img_vector_stroke.svg" alt="Next" width={24} height={24} />
-                    </button>
+                    </motion.div>
                 </div>
             </div>
         </section>

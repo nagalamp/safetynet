@@ -93,7 +93,7 @@ const WhoweareSection = () => {
       </section>
 
       {/* Ownership Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-0">
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-0 bg-[#070B23]">
         <div className="w-full max-w-[1200px] mx-auto">
           <div className="flex flex-col gap-8 justify-start items-center">
             
