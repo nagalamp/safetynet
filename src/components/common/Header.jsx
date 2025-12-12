@@ -22,7 +22,12 @@ const COUNTRY_LIST = [
   { name: 'Europe', flag: '/images/europe.png' },
 ];
 
-const LOGO_MENU = ['B4-GLOBAL 1', 'B4-GLOBAL 2', 'B4-GLOBAL 3'];
+const LOGO_MENU = 
+[
+  { name: 'B4-GLOBAL 1', href: '/' },
+  { name: 'B4-GLOBAL 2', href: '/best-rigging' },
+  { name: 'B4-GLOBAL 3', href: '/best-electricals' },
+];
 
 // --------------------------------------------------------------------
 
@@ -109,11 +114,13 @@ const Header = () => {
         ${isLogoMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
       `}
     >
-      {LOGO_MENU.map((item) => (
-        <button key={item} className="w-full text-left px-4 py-2.5 text-sm text-white hover:bg-[#1b1d29]">
-          {item}
-        </button>
-      ))}
+   {LOGO_MENU.map((item) => (
+  <Link key={item.name} href={item.href}>
+    <button className="w-full text-left px-4 py-2.5 text-sm text-white hover:bg-[#1b1d29]">
+      {item.name}
+    </button>
+  </Link>
+))}
     </div>
   );
 
