@@ -33,7 +33,7 @@ function ServiceCard({ icon, hoverIcon, title, description }: ServiceCardProps) 
     >
       {/* ICON */}
       <motion.div
-        className="w-24 h-24 mb-6 rounded flex items-center justify-center shadow-md"
+        className="w-24 h-24 mb-6 rounded flex items-center justify-center "
         animate={{ scale: isHover ? 1.15 : 1, rotate: isHover ? 5 : 0 }}
         transition={{ type: 'spring', stiffness: 200 }}
       >

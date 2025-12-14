@@ -111,7 +111,7 @@ export default function HowWeWork() {
 
             <FoodHygieneSection />
 
-            <div className="flex flex-col gap-8 justify-center items-center  m-5">
+            <div className="flex flex-col gap-8 justify-center items-center  m-5 bg-black">
               <div className="flex flex-col gap-2 items-center w-full mb-10 px-4 sm:px-11">
                 <h2
                   className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight"
@@ -125,7 +125,10 @@ export default function HowWeWork() {
               <ServiceCard/>
             </div>
 
-            <div className="flex flex-col gap-4 justify-center items-center mt-10">
+
+            
+
+            <div className="flex flex-col gap-4 justify-center items-center mt-10 bg-black">
               <div className="flex flex-col gap-2 items-center w-full mb-10 px-4 sm:px-11">
                 <h2
                   className="text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-outfit font-semibold text-white text-center leading-tight"
@@ -151,6 +154,9 @@ export default function HowWeWork() {
               />
               
             </div>
+
+
+
 
             <div className="flex flex-col gap-4 justify-center items-center mt-10">
               <div className="flex flex-col gap-2 items-center w-full mb-10 px-4 sm:px-11">

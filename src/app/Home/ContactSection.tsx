@@ -45,13 +45,13 @@ export default function ContactSection() {
 
   return (
     <motion.section
-      className="w-[90%] mx-auto py-16"
+      className="w-full mx-auto py-16 bg-black"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
       variants={staggerContainer}
     >
-      <div className="flex flex-col gap-16 items-center w-full">
+      <div className="flex flex-col gap-16 items-center w-ful bg-black">
         <div className="flex flex-col gap-10 items-center w-full max-w-[1202px]">
 
           {/* Title */}

@@ -9,7 +9,7 @@ export default function StandAssessmentSection() {
 
   return (
     <motion.section
-      className="w-full py-10 flex flex-col items-center px-4 md:px-8"
+      className="w-full py-10 flex flex-col items-center px-4 md:px-8 bg-black"
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

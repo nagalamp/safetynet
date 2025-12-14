@@ -22,8 +22,7 @@ const COUNTRY_LIST = [
   { name: 'Europe', flag: '/images/europe.png' },
 ];
 
-const LOGO_MENU = 
-[
+const LOGO_MENU = [
   { name: 'B4-GLOBAL 1', href: '/' },
   { name: 'B4-GLOBAL 2', href: '/best-rigging' },
   { name: 'B4-GLOBAL 3', href: '/best-electricals' },
@@ -161,7 +160,7 @@ const Header = () => {
       className={`
         sticky top-0 z-50 w-full transition-all duration-500
         ${isScrolled 
-          ? 'bg-[#150e24]/95 backdrop-blur-md border-b border-[#312e5c] shadow-lg' 
+          ? ' backdrop-blur-md  shadow-lg' 
           : 'bg-transparent'
         }
       `}

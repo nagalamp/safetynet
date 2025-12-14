@@ -24,7 +24,7 @@ export default function EventsSection() {
 
   return (
     <motion.section
-      className="w-full py-12 sm:py-16 lg:py-[34px] px-4"
+      className="w-full py-12 sm:py-16 lg:py-[34px] px-4 bg-black"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}

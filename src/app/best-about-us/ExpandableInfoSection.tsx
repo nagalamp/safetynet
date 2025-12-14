@@ -129,74 +129,99 @@ const ExpandableInfoSection = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
   const handleExpandToggle = (sectionId: string) => {
-    setExpandedSection((current) => (current === sectionId ? null : sectionId));
+    setExpandedSection(prev => (prev === sectionId ? null : sectionId));
   };
 
   return (
-    <section className="w-full bg-[#070b23] py-16 px-4 sm:px-6">
+    <section className="w-full bg-[#070b23] py-16 px-4 sm:px-6 mt-10">
       <div className="w-full max-w-[1200px] mx-auto flex flex-col gap-4">
 
-        {sectionsData.map((section) => (
-          <div key={section.id} className="flex flex-col gap-4 justify-center items-center w-full">
+        {sectionsData.map(section => (
+          <div key={section.id} className="flex flex-col gap-4 w-full">
 
-            {section.hasTopDivider && <div className="w-full h-[2px] bg-[#ffffff33]" />}
+            {section.hasTopDivider && (
+              <div className="w-full h-[2px] bg-[#ffffff33]" />
+            )}
 
-            <div className="flex justify-between items-center w-full">
+            {/* CLICKABLE HEADER (TITLE + ICON) */}
+            <div
+              onClick={() => handleExpandToggle(section.id)}
+              className="flex justify-between items-center w-full cursor-pointer select-none"
+              role="button"
+              aria-expanded={expandedSection === section.id}
+            >
               <h3 className="text-[24px] sm:text-[28px] lg:text-[32px] font-outfit font-bold text-white">
                 {section.title}
               </h3>
 
-              <button
-                onClick={() => handleExpandToggle(section.id)}
-                className={`transition-transform duration-300 ${expandedSection === section.id ? 'rotate-180' : ''}`}
+              <div
+                className={`transition-transform duration-300 ${
+                  expandedSection === section.id ? 'rotate-180' : ''
+                }`}
               >
                 <Image
-                  src={expandedSection === section.id ? '/images/Close.svg' : '/images/Open.svg'}
+                  src={
+                    expandedSection === section.id
+                      ? '/images/Close.svg'
+                      : '/images/Open.svg'
+                  }
                   alt="toggle"
                   width={44}
                   height={44}
                   className="w-8 h-8"
                 />
-              </button>
+              </div>
             </div>
 
+            {/* EXPANDABLE CONTENT */}
             <div
               className={`overflow-hidden transition-all duration-500 ease-in-out w-full ${
                 expandedSection === section.id
-                  ? 'max-h-[2000px] opacity-100 flex justify-center'
+                  ? 'max-h-[2000px] opacity-100'
                   : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="flex flex-col gap-4 w-full max-h-[2000px]">
+              <div className="flex flex-col gap-4 w-full">
 
-                {/* Paragraphs */}
+                {/* PARAGRAPHS */}
                 {section.content.map((paragraph, idx) => (
-                  <p key={idx} className="text-[16px] sm:text-[18px] font-opensans font-normal leading-[28px] sm:leading-[30px] text-left text-white">
+                  <p
+                    key={idx}
+                    className="text-[16px] sm:text-[18px] font-opensans leading-[28px] sm:leading-[30px] text-white"
+                  >
                     {paragraph}
                   </p>
                 ))}
 
-                {/* Cards */}
+                {/* CARDS */}
                 {section.cards && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                     {section.cards.map((card, idx) => (
-                      <div key={idx} className="bg-[#0f1442] p-4 rounded-lg flex flex-col gap-2">
-                        <h4 className="text-[18px] font-outfit font-bold text-teal-300">{card.title}</h4>
+                      <div
+                        key={idx}
+                        className="bg-[#0f1442] p-4 rounded-lg flex flex-col gap-2"
+                      >
+                        <h4 className="text-[18px] font-outfit font-bold text-teal-300">
+                          {card.title}
+                        </h4>
                         {card.info.map((line, idy) => (
-                          <p key={idy} className="text-white text-[14px]">{line}</p>
+                          <p key={idy} className="text-white text-[14px]">
+                            {line}
+                          </p>
                         ))}
                       </div>
                     ))}
                   </div>
                 )}
 
-                {/* List Items */}
+                {/* LIST ITEMS */}
                 {section.listItems && (
                   <div className="w-full bg-[#0f1442] p-4 rounded-lg">
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-white">
                       {section.listItems.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <span className="text-teal-300">•</span>{item}
+                          <span className="text-teal-300">•</span>
+                          {item}
                         </li>
                       ))}
                     </ul>
@@ -206,7 +231,10 @@ const ExpandableInfoSection = () => {
               </div>
             </div>
 
-            {section.hasBottomDivider && <div className="w-full h-[2px] bg-[#ffffff33]" />}
+            {section.hasBottomDivider && (
+              <div className="w-full h-[2px] bg-[#ffffff33]" />
+            )}
+
           </div>
         ))}
 

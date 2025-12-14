@@ -31,7 +31,7 @@ const WhoweareSection = () => {
 
 
           {/* Company Image */}
-          <div className="w-full mb-0">
+          <div className="w-full mb-10">
             <Image
               src="/images/img_rectangle_758.png"
               alt="BEST B4-Global Office"
@@ -97,7 +97,7 @@ const WhoweareSection = () => {
       <OwnershipSection/>
       <TeamSlider />
       {/* Information Sections */}
-      <section className="w-full py-1 px-4 sm:px-6 lg:px-0">
+      <section className="w-full py-1 px-4 sm:px-6 lg:px-0 mt-10 bg-black">
         <div className="w-full max-w-[1200px] mx-auto flex flex-col gap-8">
           {/* Staff Qualifications */}
           <div
@@ -175,7 +175,7 @@ const WhoweareSection = () => {
             }}
             
           >
-            <div className="w-full border border-[#ffffff2d] rounded-[4px] bg-[#070b23e5] p-6 sm:p-8 lg:p-16">
+            <div className="w-full border border-[#ffffff2d] rounded-[4px]  p-6 sm:p-8 lg:p-16">
               <div className="flex flex-col gap-6 justify-center items-start">
                 <h3 className="text-[24px] sm:text-[28px] lg:text-[32px] font-outfit font-bold leading-[30px] sm:leading-[36px] lg:leading-[41px] text-left text-white">
                   Corporate Governance
@@ -277,9 +277,9 @@ const WhoweareSection = () => {
           {/* Event Experience */}
           <div
             className="w-full bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/img_560_1.png)' }}
+            style={{ backgroundImage: 'url(/images/AboutUs/StaffQualifications.png)' }}
           >
-            <div className="w-full border border-[#ffffff2d] rounded-[4px] bg-[#070b23e5] p-6 sm:p-8 lg:p-[58px]">
+            <div className="w-full border border-[#ffffff2d] rounded-[4px]  p-6 sm:p-8 lg:p-[58px]">
               <div className="flex flex-col gap-6 justify-start items-start">
                 <h3 className="text-[24px] sm:text-[28px] lg:text-[32px] font-outfit font-bold leading-[30px] sm:leading-[36px] lg:leading-[41px] text-left text-white">
                   Event Experience
