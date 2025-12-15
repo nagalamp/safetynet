@@ -16,7 +16,7 @@ export default function ContactBanner({
   bgColor = "bg-gray-800",
 }: ContactBannerProps) {
   return (
-    <section className="w-full px-6 lg:px-16">
+    <section className="w-full px-6 lg:px-16 bg-black">
       <div
         className="w-full max-w-[1200px] mx-auto relative rounded-[100px] overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: "url('/images/CTA.png')", height: "197px" }}

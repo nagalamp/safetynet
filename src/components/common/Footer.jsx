@@ -4,11 +4,15 @@ import React from 'react';
 
 const Footer = () => {
   const serviceLinks = [
-    { name: 'Safety Management', href: '/services/safety-management' },
-    { name: 'Floor Manager Services', href: '/services/floor-manager' },
-    { name: 'Stand Auditing Services', href: '/services/stand-auditing' },
-    { name: 'H&S Training', href: '/services/training' },
-    { name: 'Contact US', href: '/contact' }
+   
+ 
+    { name: 'Stand Auditing Services', href: '/services/stand-auditing-services' },
+    { name: 'Health & Safety Services', href: '/services/health-safety-services' },
+    { name: 'Electrical Safety Services', href: '/services/electrical-safety-services' },
+    { name: 'Fire Safety Services', href: '/services/fire-safety-services' },
+    { name: 'Event Strategic Safety Services', href: '/services/event-strategic-safety-services' },
+    { name: 'Rigging Services', href: '/services/rigging-services' },
+    { name: 'Engineering Services', href: '/services/engineering-services' },
   ];
 
   const quickLinks = [
@@ -16,7 +20,8 @@ const Footer = () => {
     { name: 'About Us', href: '/about' },
     { name: 'Our Services', href: '/services' },
     { name: 'Accreditations', href: '/accreditations' },
-    { name: 'How We Work', href: '/how-we-work' }
+    { name: 'How We Work', href: '/how-we-work' },
+    { name: 'Contact US', href: '/contact' }
   ];
 
   const ukAddress = [

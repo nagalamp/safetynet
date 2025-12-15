@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Button from '../../components/ui/Button';
 import EditText from '../../components/ui/EditText';
 import TextArea from '../../components/ui/TextArea';
 import ContactBanner from './ContactBanner';
@@ -44,201 +43,171 @@ export default function ContactSection() {
   };
 
   return (
-    <motion.section
-      className="w-[90%] mx-auto py-16"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={staggerContainer}
-    >
-      <div className="flex flex-col gap-16 items-center w-full">
-        <div className="flex flex-col gap-10 items-center w-full max-w-[1202px]">
+    <>
+      {/* ================= MAIN CONTACT SECTION ================= */}
+      <motion.section
+        className="w-[90%] mx-auto py-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+      >
+        <div className="flex flex-col gap-16 items-center w-full">
+          <div className="flex flex-col gap-10 items-center w-full max-w-[1202px]">
 
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 justify-between items-stretch w-full">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 justify-between items-stretch w-full">
 
-            {/* Contact Image */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center justify-center space-y-10">
-  
-  {/* CONTACT BLOCK — 1 */}
-  <div className="w-full max-w-[583px]">
-    <div className="flex flex-row items-start gap-4 w-[583px] h-[238px]">
+              {/* ================= LEFT ADDRESS BLOCK ================= */}
+              <div className="w-full lg:w-1/2 flex flex-col items-center justify-center space-y-10">
 
-      {/* Icon */}
-      <div className="relative w-[40px] h-[40px] flex-none">
-      <Image
-        src="/images/ContactUs/bx_map.png"
-        alt="Location Icon"
-        width={13.33}
-        height={13.33}
-        style={{
-          width: "26.67px",
-          height: "33.33px",
-          objectFit: "contain"
-        }}
-      />
-      </div>
+                {/* UK ADDRESS */}
+                <div className="w-full max-w-[583px]">
+                  <div className="flex flex-row items-start gap-4 w-[583px] h-[238px]">
+                    <div className="relative w-[40px] h-[40px] flex-none">
+                      <Image
+                        src="/images/ContactUs/bx_map.png"
+                        alt="Location Icon"
+                        width={26}
+                        height={33}
+                      />
+                    </div>
 
-      {/* Content */}
-      <div className="flex flex-col gap-4 w-[527px] text-white">
+                    <div className="flex flex-col gap-4 w-[527px] text-white">
+                      <div className="flex flex-col gap-3">
+                        <p className="text-[20px] font-outfit">Headquarters</p>
+                        <p className="text-[24px] font-semibold font-outfit">
+                          United Kingdom (Global Head Quarters)
+                        </p>
+                      </div>
 
-        <div className="flex flex-col gap-3">
-          <p className="text-[20px] leading-[24px] font-outfit">Headquarters</p>
-          <p className="text-[24px] leading-[30px] font-semibold font-outfit">
-            United Kingdom (Global Head Quarters)
-          </p>
-        </div>
+                      <p className="opacity-60 text-[16px] font-opensans">
+                        The Ridings 27 Ash Tree Close, Southwood Village,
+                        Farnborough Hampshire GU14 0QP
+                      </p>
 
-        <p className="opacity-60 text-[16px] leading-[24px] font-opensans">
-          The Ridings 27 Ash Tree Close, Southwood Village, Farnborough Hampshire
-          GU14 0QP Registered in England and Wales
-        </p>
+                      <div>
+                        <p className="text-[20px] font-semibold font-outfit">
+                          Company Number: 11546221
+                        </p>
+                        <p className="text-[20px] font-semibold font-outfit">
+                          VAT Number: GB322950906
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-        <div className="flex flex-col">
-          <p className="text-[20px] leading-[34px] font-semibold font-outfit">
-            Company Number: 11546221
-          </p>
-          <p className="text-[20px] leading-[34px] font-semibold font-outfit">
-            VAT Number: GB322950906
-          </p>
-        </div>
+                {/* INDIA ADDRESS */}
+                <div className="w-full max-w-[583px]">
+                  <div className="flex flex-row items-start gap-4 w-[583px]">
+                    <div className="relative w-[40px] h-[40px] flex-none">
+                      <Image
+                        src="/images/ContactUs/bx_map.png"
+                        alt="Location Icon"
+                        width={26}
+                        height={33}
+                      />
+                    </div>
 
-      </div>
-    </div>
-  </div>
+                    <div className="flex flex-col gap-4 w-[527px] text-white">
+                      <div className="flex flex-col gap-3">
+                        <p className="text-[20px] font-outfit">Headquarters</p>
+                        <p className="text-[24px] font-semibold font-outfit">
+                          India Address (Head Office)
+                        </p>
+                      </div>
 
-  {/* CONTACT BLOCK — 2 (UPDATED INDIA ADDRESS) */}
-  <div className="w-full max-w-[583px]">
-    <div className="flex flex-row items-start gap-4 w-[583px]">
+                      <p className="opacity-60 text-[16px] font-opensans">
+                        Bluelemon Events Safety Training India Pvt. Ltd.<br />
+                        Richmond Road, Bangalore – 560025
+                      </p>
 
-      {/* Icon */}
-      <div className="relative w-[40px] h-[40px] flex-none">
-      <Image
-        src="/images/ContactUs/bx_map.png"
-        alt="Location Icon"
-        width={13.33}
-        height={13.33}
-        style={{
-          width: "26.67px",
-          height: "33.33px",
-          objectFit: "contain"
-        }}
-      />
-      </div>
-
-      {/* Content */}
-      <div className="flex flex-col gap-4 w-[527px] text-white">
-
-        {/* Titles */}
-        <div className="flex flex-col gap-3">
-          <p className="text-[20px] leading-[24px] font-outfit">Headquarters</p>
-          <p className="text-[24px] leading-[30px] font-semibold font-outfit">
-            India Address (Head Office)
-          </p>
-        </div>
-
-        {/* Address */}
-        <p className="opacity-60 text-[16px] leading-[24px] font-opensans">
-          Bluelemon Events Safety Training India Pvt, Ltd.<br />
-          No 4,5/1, Rich Homes Richmond Road, Richmond Town,<br />
-          Bangalore-560025, Karnataka, India
-        </p>
-
-        {/* Company Info */}
-        <div className="flex flex-col">
-          <p className="text-[20px] leading-[34px] font-semibold font-outfit">
-            The Corporate Identity Company
-          </p>
-
-          <p className="text-[20px] leading-[34px] font-semibold font-outfit">
-            Number: U88230KA2023PTC172360
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-            {/* Contact Form */}
-            <div className="flex flex-col gap-6 w-full lg:w-1/2 bg-[#232233] border border-[#5F5D78] rounded p-6 -mt-40 z-10">
-
-              <div className="w-[544px] h-[144px] font-outfit font-semibold text-[40px] leading-[120%] text-white flex-none">
-                Get in touch to collaborate, and let’s achieve success together.
+                      <p className="text-[20px] font-semibold font-outfit">
+                        CIN: U88230KA2023PTC172360
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="w-[544px] h-[52px] font-sans font-normal text-[16px] leading-[160%] text-white flex items-center flex-none">
-                Thank you for your interest. Please leave your details below and we'll connect with you.
-              </div>
+              {/* ================= CONTACT FORM ================= */}
+              <div className="flex flex-col gap-6 w-full lg:w-1/2 bg-[#232233] border border-[#5F5D78] rounded p-6 -mt-40 z-10">
 
-              <div className="flex flex-col gap-4 w-full">
-                <EditText
-                  placeholder="Inquiry Type*"
-                  value={formData.inquiryType}
-                  onChange={(e) => onFormChange('inquiryType', e.target.value)}
-                  layout_width="w-full"
-                />
+                <h3 className="font-outfit font-semibold text-[40px] text-white">
+                  Get in touch to collaborate, and let’s achieve success together.
+                </h3>
 
-                {/* First Name & Last Name on the same row */}
-                <div className="flex flex-row gap-4 w-full">
+                <p className="text-[16px] text-white opacity-80">
+                  Please leave your details below and we'll connect with you.
+                </p>
+
+                <div className="flex flex-col gap-4">
                   <EditText
-                    placeholder="First Name"
-                    value={formData.firstName}
-                    onChange={(e) => onFormChange('firstName', e.target.value)}
+                    placeholder="Inquiry Type*"
+                    value={formData.inquiryType}
+                    onChange={(e) => onFormChange('inquiryType', e.target.value)}
+                    layout_width="w-full"
                   />
+
+                  <div className="flex gap-4">
+                    <EditText
+                      placeholder="First Name"
+                      value={formData.firstName}
+                      onChange={(e) => onFormChange('firstName', e.target.value)}
+                    />
+                    <EditText
+                      placeholder="Last Name"
+                      value={formData.lastName}
+                      onChange={(e) => onFormChange('lastName', e.target.value)}
+                    />
+                  </div>
+
                   <EditText
-                    placeholder="Last Name"
-                    value={formData.lastName}
-                    onChange={(e) => onFormChange('lastName', e.target.value)}
+                    placeholder="Email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => onFormChange('email', e.target.value)}
+                    layout_width="w-full"
+                  />
+
+                  <EditText
+                    placeholder="Phone Number"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => onFormChange('phone', e.target.value)}
+                    layout_width="w-full"
+                  />
+
+                  <TextArea
+                    placeholder="Message"
+                    value={formData.message}
+                    onChange={(e) => onFormChange('message', e.target.value)}
+                    rows={6}
+                    layout_width="w-full"
                   />
                 </div>
 
-                <EditText
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={(e) => onFormChange('email', e.target.value)}
-                  layout_width="w-full"
-                  type="email"
-                />
-
-                <EditText
-                  placeholder="Phone Number"
-                  value={formData.phone}
-                  onChange={(e) => onFormChange('phone', e.target.value)}
-                  layout_width="w-full"
-                  type="tel"
-                />
-
-                <TextArea
-                  placeholder="Message"
-                  value={formData.message}
-                  onChange={(e) => onFormChange('message', e.target.value)}
-                  layout_width="w-full"
-                  rows={6}
-                />
-              </div>
-
-              <div className="w-full">
-                <button 
+                <button
                   onClick={onSubmit}
-                  className="w-full bg-[#f05623] text-[#f2f2f2] uppercase font-outfit font-semibold text-[20px] leading-[26px] py-3 px-6 hover:opacity-90 transition"
+                  className="w-full bg-[#f05623] text-white font-outfit font-semibold text-[20px] py-3 uppercase hover:opacity-90 transition"
                 >
                   SEND IT TO THE MOON
                 </button>
               </div>
             </div>
-
           </div>
         </div>
+      </motion.section>
 
+      {/* ================= CONTACT BANNER (SEPARATE SECTION) ================= */}
+      <section className="w-full py-12 flex justify-center mt-10 bg-black">
         <ContactBanner
           iconSrc="/images/img_ic_outline_email.svg"
           title="E-Mail Address"
           value="hello@crosson.com"
           bgColor="bg-[#1f2937]"
         />
-      </div>
-    </motion.section>
+      </section>
+    </>
   );
 }

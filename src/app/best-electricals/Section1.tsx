@@ -10,8 +10,8 @@ export default function Section1() {
   const isInView = useInView(ref, { threshold: 0.2 });
 
   return (
-    <section className="relative w-full bg-white overflow-hidden flex justify-center">
-      <div ref={ref} className="relative w-full max-w-[1200px] min-h-[900px] px-4 lg:px-0">
+    <section className="relative w-full bg-white overflow-hidden flex justify-center gap-16">
+      <div ref={ref} className="relative w-full max-w-[1200px] min-h-[900px] px-4 lg:px-0 gap-16">
 
         {/* Background Vector Image – responsive animation */}
         <motion.div
@@ -46,6 +46,13 @@ export default function Section1() {
           "
         >
           WHERE HEALTH MEETS SAFETY, DELIVERED BY EXPERTS
+          <motion.span 
+                className="text-[#F05623]"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                 &nbsp;&gt; 
+              </motion.span>
         </motion.p>
 
         {/* SUBTITLE */}

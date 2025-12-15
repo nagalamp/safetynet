@@ -55,7 +55,7 @@ export default function BestContactPage() {
       </div>
 
       <main>
-        <section className="w-full bg-[#070b23] py-16 px-4 sm:px-6 lg:px-0">
+        <section className="w-full bg-[#070b23]  px-4 sm:px-6 lg:px-0">
         
            
 

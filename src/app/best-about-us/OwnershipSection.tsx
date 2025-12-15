@@ -37,8 +37,14 @@ const OwnershipSection = () => {
                   </p>
 
                   <p className="text-[16px] sm:text-[18px] font-opensans text-white leading-relaxed">
-                    Stuart is a seasoned health and safety practitioner with a rich history in the event, public, and commercial sectors since 1995.
+                  Stuart is a seasoned health and safety practitioner with a rich history in the event, public, and commercial sectors since 1995. As a Fellow of the International Institute of Risk and Safety Management, Stuart brings extensive expertise in strategic risk management, emergency planning, business continuity, and commercial insurance risk management. Additionally, Stuart is actively involved in teaching and assessing for the British Safety Council's Diploma and Certificate programs. He serves as an IOSH accredited trainer, imparting knowledge in areas such as First Aid Training and various safety and management subjects.
                   </p>
+                  <div className="flex gap-2 justify-start items-center w-full">
+                  <Image src="/images/img_uil_facebook.svg" alt="Facebook" width={24} height={24} />
+                  <Image src="/images/img_fa6_brands_square_x_twitter.svg" alt="Twitter" width={20} height={24} />
+                  <Image src="/images/img_uil_linkedin.svg" alt="LinkedIn" width={24} height={24} />
+                  <Image src="/images/img_fa_brands_instagram_square.svg" alt="Instagram" width={20} height={24} />
+                </div>
                 </div>
               </div>
 
@@ -74,8 +80,14 @@ const OwnershipSection = () => {
                   </p>
 
                   <p className="text-[16px] sm:text-[18px] font-opensans text-white leading-relaxed">
-                    Naveen KS is a highly accomplished and qualified engineer with over 20 years of experience in the industry.
+                  Naveen KS is a highly accomplished and qualified engineer with over 20 years of experience in the industry. His impressive track record includes the successful delivery of large-scale civil engineering, infrastructure, and building projects. Naveen's expertise extends beyond engineering, as he holds an MBA, positioning him as an asset for steering the business forward with his strategic and managerial skills. Having contributed to events in India, the U.K., and Europe, Naveen showcases his international experience and profound understanding of diverse markets. His pivotal role in the business involves leveraging his extensive knowledge of the event industry to drive it towards success.
                   </p>
+                  <div className="flex gap-2 justify-start items-center w-full">
+                  <Image src="/images/img_uil_facebook.svg" alt="Facebook" width={24} height={24} />
+                  <Image src="/images/img_fa6_brands_square_x_twitter.svg" alt="Twitter" width={20} height={24} />
+                  <Image src="/images/img_uil_linkedin.svg" alt="LinkedIn" width={24} height={24} />
+                  <Image src="/images/img_fa_brands_instagram_square.svg" alt="Instagram" width={20} height={24} />
+                </div>
                 </div>
               </div>
 
@@ -111,8 +123,14 @@ const OwnershipSection = () => {
                   </p>
 
                   <p className="text-[16px] sm:text-[18px] font-opensans text-white leading-relaxed">
-                    Duncan boasts over 25 years of experience providing high-level safety services within the event and exhibition industry.
+                  Duncan boasts over 25 years of experience providing high-level safety services within the event and exhibition industry. As a qualified electrical auditor, Duncan specializes in Fire Safety, Crowd Management, and business risk mitigation. Notably, he recently completed the Fire Safety Management documentation, including occupancies and risk assessments, for several structures within Yas Island. Duncan serves as the company's lead auditor, spearheading the development and delivery of onsite audit functions. His expertise ensures the highest standards of safety in every aspect of event execution.
                   </p>
+                  <div className="flex gap-2 justify-start items-center w-full">
+                  <Image src="/images/img_uil_facebook.svg" alt="Facebook" width={24} height={24} />
+                  <Image src="/images/img_fa6_brands_square_x_twitter.svg" alt="Twitter" width={20} height={24} />
+                  <Image src="/images/img_uil_linkedin.svg" alt="LinkedIn" width={24} height={24} />
+                  <Image src="/images/img_fa_brands_instagram_square.svg" alt="Instagram" width={20} height={24} />
+                </div>
                 </div>
               </div>
 

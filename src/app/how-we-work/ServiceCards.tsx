@@ -120,7 +120,7 @@ const eventStrategicSafetyServices = [
 -------------------------------------------------------------------*/
 export default function EventStrategicSafetyServices() {
   return (
-    <div className="w-full flex flex-col items-center bg-[#0F0F1A] py-16 px-4">
+    <div className="w-full flex flex-col items-center py-16 px-4">
       <div className="w-full max-w-[1300px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {eventStrategicSafetyServices.map((service, index) => (
           <ServiceCard
